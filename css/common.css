@@ -1,0 +1,11 @@
+@charset "utf-8";
+/*m_nav*/
+.m_nav_l {
+	float:left;
+	margin-left:10px;
+}
+.m_nav_r {
+	position:absolute;
+	top:16px;
+	right:10px;
+}
