@@ -31,6 +31,7 @@ body {margin-top: 50px; margin-bottom: 20px;}
 	
 }
 
+
 /* m_thumb */
 .m_thumb {
 	width: 100%;
@@ -38,9 +39,76 @@ body {margin-top: 50px; margin-bottom: 20px;}
 }
 .m_thumb > a {
 	display: inline-block;
-	width: 300px;
+	width: 280px;
+	margin: 10px;
+	padding: 10px 10px;
 	border: 1px solid #eee;
 }
+.m_thumb > a > img {
+	width: 260px;
+	height: 260px;
+}
+.m_thumb > a > div {
+	width: 100%;
+}
+/* m_thumb_user*/
+.m_thumb_user {
+	width: 100%;
+	padding: 10px 0;
+	border-bottom: 2px solid red;
+	position: relative;
+}
+.m_thumb_user > img {
+	width: 40px;
+	height: 40px;
+	border-radius: 20px;
+	position: absolute;
+	top: 10px;
+	left: 10px;
+}
+.m_thumb_user > h5 {
+	margin-left: 60px;
+	font-weight: bold;
+	text-align: left;
+	line-height: 1.4em;
+	margin-bottom: 10px;
+}
+.m_thumb_user > p {
+	padding: 0px 10px;
+	text-align: left;
+	font-size: 0.8em;
+	color: #aaa;
+}
+/* m_thumb_info */
+.m_thumb_info {
+	width: 100%;
+	margin: 10px 0 0 0;
+	text-align: right;
+}
+.m_thumb_info_1 {
+	width: 110px;
+	display: inline-block;
+}
+.m_thumb_info_2 {
+	width: 60px;
+	display: inline-block;
+}
+.m_thumb_info_3 {
+	width: 70px;
+	display: inline-block;
+}
+.m_thumb_info p {
+	font-size: 0.8em;
+	line-height: 1.6em;
+}
+
+.m_thumb_info_1 > p > span {
+	color: red;
+	font-weight: bold;
+	margin: 0 0 0 20px;
+}
+
+
 /* footer &*/
 .footer_cfteam > ul > li > a {
 	display: inline-block;
