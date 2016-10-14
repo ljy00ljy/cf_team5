@@ -142,3 +142,8 @@ body {margin-top: 50px; margin-bottom: 20px;}
 	font-size: 0.9em;
 	color: #666;
 }
+address {
+	padding: 20px 20px;
+	color: #ddd;
+	font-size: 0.8em;
+}
