@@ -1,4 +1,7 @@
 @charset "utf-8";
+
+body {margin-top: 50px; margin-bottom: 20px;}
+
 /*m_nav*/
 .m_nav_container {
 	position: relative;
@@ -11,4 +14,30 @@
 	position: absolute;
 	top: 16px;
 	right: 15px;
+}
+.m_nav_r > a {
+	color: #fff;
+	font-weight: bold;
+}
+
+/*carousel_m01*/
+#carousel_m01 {
+	margin-bottom: 20px;
+}
+#carousel_m01 > div > div {
+	width: 100%; max-height: 500px; overflow: hidden;
+}
+#carousel_m01 > div > div > img {
+	
+}
+
+/* m_thumb */
+.m_thumb {
+	width: 100%;
+	text-align: center;
+}
+.m_thumb > a {
+	display: inline-block;
+	width: 300px;
+	border: 1px solid #eee;
 }
