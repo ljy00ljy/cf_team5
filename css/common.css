@@ -41,3 +41,23 @@ body {margin-top: 50px; margin-bottom: 20px;}
 	width: 300px;
 	border: 1px solid #eee;
 }
+/* footer &*/
+.footer_cfteam > ul > li > a {
+	display: inline-block;
+	line-height: 200%;
+}
+
+.footer_project > ul > li > a {
+	display: inline-block;
+	line-height: 200%;
+}
+
+.footer_follow > ul > li > a {
+	display: inline-block;
+	line-height: 200%;
+}
+
+.footer_header{
+	background: url(../img/bg_header.gif) repeat-x;
+	height: 22px;
+	}
