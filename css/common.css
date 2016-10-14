@@ -31,11 +31,11 @@ body {margin-top: 50px; margin-bottom: 20px;}
 	
 }
 
-
 /* m_thumb */
 .m_thumb {
 	width: 100%;
 	text-align: center;
+	margin-bottom: 30px;
 }
 .m_thumb > a {
 	display: inline-block;
@@ -108,24 +108,3 @@ body {margin-top: 50px; margin-bottom: 20px;}
 	margin: 0 0 0 20px;
 }
 
-
-/* footer &*/
-.footer_cfteam > ul > li > a {
-	display: inline-block;
-	line-height: 200%;
-}
-
-.footer_project > ul > li > a {
-	display: inline-block;
-	line-height: 200%;
-}
-
-.footer_follow > ul > li > a {
-	display: inline-block;
-	line-height: 200%;
-}
-
-.footer_header{
-	background: url(../img/bg_header.gif) repeat-x;
-	height: 22px;
-	}
