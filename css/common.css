@@ -30,6 +30,16 @@ body {margin-top: 50px; margin-bottom: 20px;}
 #carousel_m01 > div > div > img {
 	
 }
+.carousel-caption > h2 {
+	font-size: 2.6em;
+	font-weight: bold;
+}
+.carousel-caption > p {
+	margin-top: 50px;
+	margin-bottom: 20px;
+	font-size: 1em;
+	font-weight: bold;
+}
 
 /* m_thumb */
 .m_thumb {
@@ -110,22 +120,25 @@ body {margin-top: 50px; margin-bottom: 20px;}
 }
 
 /* footer &*/
-.footer_cfteam > ul > li > a {
-	display: inline-block;
-	line-height: 200%;
+.footer_header {
+	border-top: 1px solid #eee;
+	border-bottom: 1px solid #eee;
 }
-
-.footer_project > ul > li > a {
-	display: inline-block;
-	line-height: 200%;
+.footer_header > div {
+	padding: 20px 0;
 }
-
-.footer_follow > ul > li > a {
-	display: inline-block;
-	line-height: 200%;
+.footer_header > div > h5 {
+	width: 100%;
+	font-weight: bold;
+	font-size: 1.1em;
+	color: #999;
+	margin-bottom: 10px;
 }
-
-.footer_header{
-	background: url(../img/bg_header.gif) repeat-x;
-	height: 22px;
-	}
+.footer_header > div > ul {
+	
+}
+.footer_header > div > ul > li > a {
+	line-height: 2em;
+	font-size: 0.9em;
+	color: #666;
+}
