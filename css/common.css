@@ -146,6 +146,42 @@ body {
 	margin: 0 0 0 20px;
 }
 
+/* login */
+.loginbox {
+	width: 300px;
+	border: 1px solid #eee;
+	margin: auto;
+	padding: 20px 20px;
+}
+.loginbox label {
+	margin-top: 5px;
+}
+.loginbox input {
+	float: right;
+	padding: 2px 2px;
+}
+.loginbox button {
+	width: 100%;
+	margin-bottom: 20px;
+	padding: 8px 5px;
+	border: 0;
+	border-radius: 10px;
+	background: #fc6d6d;
+	color: white;
+	font-weight: bold;
+	font-size: 1.2em;
+}
+.loginbox > form > div > a {
+	padding: 0 20px;
+}
+.loginbox > form > div > a:last-child {
+	float: right;
+}
+.loginbox:after {
+	content:''; display: block; clear: both; float:none;
+}
+
+
 /* footer &*/
 .footer_header {
 	border-top: 1px solid #eee;
