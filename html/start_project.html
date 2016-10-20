@@ -28,13 +28,211 @@
 <link rel="stylesheet" href="../css/common.css">
 </head>
 <body>
+	<!-- container -->
 	<div class="container">
-	
+		<!-- start_input (use jquery) -->
+		<form class="start_input" action="#">
+			<!-- 프로젝트 개요 -->
+			<h5>프로젝트 개요</h5>
+			<div>
+				<p>프로젝트 제목</p>
+				<div>
+					<p>프로젝트에 멋진 제목을 붙여주세요. 감정에 호소하는 제목보다는 무엇을 만드는지 쉽게 알 수 있는 제목이
+						좋습니다. 공간이 부족한 곳에 쓰일 7자 이내의 짧은 제목도 정해주세요.</p>
+					<div>
+						<h6>프로젝트 제목은 어디에 쓰이나요?</h6>
+						<img src="../img/start_input_project_title_01.png" /> <label
+							for="p_title_l">프로젝트 제목</label> <input type="text"
+							name="p_title_l">
+					</div>
+					<div>
+						<h6>프로젝트 짧은 제목은 어디에 쓰이나요?</h6>
+						<img src="../img/start_input_project_title_02.png" /> <label
+							for="p_title_s">프로젝트 짧은 제목</label> <input type="text"
+							name="p_title_s">
+					</div>
+				</div>
+			</div>
+			<div>
+				<p>프로젝트 대표 이미지</p>
+				<div>
+					<p>프로젝트를 대표할 이미지입니다. 후원자들이 한번에 무슨 프로젝트인지 알 수 있도록 프로젝트의 특징을 잘
+						잡아내는 이미지를 등록해 주시는 것이 좋습니다.</p>
+					<h6>대표 이미지는 어디에 쓰이나요?</h6>
+					<P>대표 이미지는 웹페이지에서 두루 쓰이는 썸네일의 이미지로 사용됩니다.</P>
+					<input type="file">
+				</div>
+			</div>
+			<div>
+				<p>프로젝트 요약</p>
+				<div>
+					<p>후원자 분들에게 본 페이지를 간략하게 소개해 보세요.</p>
+					<textarea></textarea>
+				</div>
+			</div>
+			<div>
+				<p>프로젝트 카테고리</p>
+				<div>
+					<p>프로젝트의 성격에 맞는 카테고리를 선택해 주세요</p>
+					<select>
+						<option>카테고리 선택</option>
+						<option>미술</option>
+						<option>만화</option>
+						<option>디자인</option>
+						<option>패션</option>
+						<option>영화</option>
+						<option>요리</option>
+						<option>게임</option>
+						<option>출판</option>
+						<option>출판</option>
+						<option>출판</option>
+						<option>출판</option>
+
+					</select>
+				</div>
+			</div>
+			<div>
+				<p>프로젝트 페이지 주소</p>
+				<div>
+					<p>프로젝트 페이지로 들어올 수 있는 주소(url)을 정해주세요</p>
+					<label for="p_url">http://우리웹사이트 주소/</label> <input type="text" />
+				</div>
+			</div>
+			<!-- //프로젝트 개요 -->
+			<!-- 진행자 정보 -->
+			<h5>진행자 정보</h5>
+			<div>
+				<p>프로필 이미지</p>
+				<div>
+					<p>진행자님 개인이나 팀의 사진을 올려주세요. 얼굴이 나온 사진을 넣으면 프로젝트의 신뢰성 향상에 도움이
+						됩니다.</p>
+					<input type="file" />
+				</div>
+			</div>
+			<div>
+				<p>진행자 이름</p>
+				<div>
+					<p>진행자님을 대표할 수 있는 이름을 써 주세요. 팀으로 진행하신다면 팀 이름을 쑤셔도 됩니다.</p>
+					<label for="p_tname">진행자 이름</label> <input type="text" />
+				</div>
+			</div>
+			<div>
+				<p>진행자 소개</p>
+				<div>
+					<P>진행자의 이력과 간단한 소개를 써 주세요</P>
+					<h6>진행자 소개는 어디에 쓰이나요?</h6>
+					<p>프로젝트 페이지를 방문하는 후원자들이 '크리에이터 자세히 보기'를 클릭하면, 진행자님의 과거 텀블벅
+						프로젝트들과 함께 진행자 소개 문구가 표시됩니다. 2~3문장으로 간략하게 어떤 작업을 위주로 활동해 온 창작자인지
+						알려주세요</p>
+					<textarea></textarea>
+				</div>
+			</div>
+			<div>
+				<p>진행자 활동지역</p>
+				<div>
+					<p>진행자님은 주로 어느 지역에서 활동하시나요? 활동 지역을 구체적으로 기입해주시면 프로젝트의 신뢰를 높이는 데
+						도움이 됩니다.</p>
+					<input type="text" />
+				</div>
+			</div>
+			<!-- // 진행자 정보 -->
+			<!-- 펀딩 목표 설정 -->
+			<h5>펀딩 목표 설정</h5>
+			<div>
+				<p>목표 금액</p>
+				<div>
+					<p>이번 프로젝트를 통해 모으고자 하는 펀딩 목표 금액이 얼마인가요?</p>
+					<input type="text" />
+					<div>
+						<h6>수수료를 제외하면 얼마를 받을 수 있나요?</h6>
+						<p>총 모금액에서 아래와 같이 공제됩니다.</p>
+						<table>
+							<tr>
+								<td>항목</td>
+								<td>금액</td>
+							</tr>
+							<tr>
+								<td>결제처리 수수료</td>
+								<td>3~4% + VAT</td>
+							</tr>
+							<tr>
+								<td>플랫폼 수수료</td>
+								<td>5% + VAT</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+
+			</div>
+			<div>
+				<p>프로젝트 마감일</p>
+				<div></div>
+			</div>
+			<!-- //펀딩 목표 설정 -->
+			<!-- 선물 구성 -->
+			<h5>선물 구성</h5>
+			<div>
+				<p>선물 추가하기</p>
+				<div></div>
+			</div>
+			<!-- //선물 구성 -->
+			<!-- 정책 설정 -->
+			<h5>정책 설정</h5>
+			<div>
+				<p>환불 및 교환 정책</p>
+				<div></div>
+			</div>
+			<!-- //정책 설정 -->
+			<!-- 스토리텔링 -->
+			<h5>스토리텔링</h5>
+			<div>
+				<p>프로젝트 소개 영상</p>
+				<div></div>
+			</div>
+			<div>
+				<p>프로젝트 스토리</p>
+				<div></div>
+			</div>
+			<!-- //스토리텔링 -->
+			<!-- 계좌 설정 -->
+			<h5>계좌 설정</h5>
+			<div>
+				<p>이메일 주소</p>
+				<div></div>
+			</div>
+			<div>
+				<p>휴대폰 번호</p>
+				<div></div>
+			</div>
+			<div>
+				<p>입금 계좌</p>
+				<div></div>
+			</div>
+			<!-- // 계좌 설정 -->
+			<!-- submit -->
+			<p>프로젝트 등록 준비 다 됐음? 빠진거 없음? 다시 안봐도 됨?</p>
+			<button type="submit">검토 요청하기</button>
+			<!-- //submit -->
+		</form>
+		<!-- //start_input -->
 	</div>
+	<!-- //container -->
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script src="../assets/js/jquery.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="../assets/js/bootstrap.min.js"></script>
+
+	<!-- start_input jquery -->
+	<script type="text/javascript">
+		$(function() {
+			$(".start_input > div > p").click(function() {
+				// $(".start_input > div > div").slideUp();
+				$(this).next().toggle();
+			});
+		});
+	</script>
+	<!-- // start_input jquery -->
+
 </body>
 </html>

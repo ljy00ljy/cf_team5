@@ -220,3 +220,118 @@ address {
 .bbtn-lg {
 	text-align: center;
 }
+
+
+
+/* start_project.html */
+.start_input {
+	width: 100%;
+	height: auto;
+	padding: 10px 10px;
+	margin-bottom: 20px;
+}
+.start_input > h5 {
+	font-size: 1.4em;
+	line-height: 2em;
+	font-weight: bold;
+	color: #666;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	border-bottom: 1px solid #ddd;
+}
+.start_input > div {
+	width: 100%;
+	height: auto;
+	margin-bottom: 2px;
+	border: 1px solid #ddd;
+	border-radius: 10px;
+	padding: 10px;
+	background: #eee;
+}
+.start_input > div:hover {
+	background: #eef;
+}
+.start_input > div:hover > p {
+	color: #99f;
+}
+.start_input > p {
+	margin: 20px;
+}
+.start_input > button {
+	width: 100%;
+	margin-bottom: 2px;
+	border: 1px solid #ddd;
+	border-radius: 10px;
+	padding: 10px 10px;
+	font-size: 1.2em;
+	line-height: 1.4em;
+	font-weight: bold;
+	color: #fff;
+	background: #6274fc;
+}
+.start_input > div > p {
+	width: 100%;
+	font-weight: bold;
+	line-height: 1.6em;
+	color: #666;
+}
+.start_input > div > div {
+	width: 100%;
+	height: auto;
+	display: none;
+	margin-top: 20px;
+	border-radius: 10px;
+	padding: 10px;
+}
+.start_input > div > div label {
+	font-size: 1em;
+	line-height: 1.6em;
+	font-weight: bold;
+	color: #666;
+}
+.start_input > div > div > div {
+	height: auto;
+	display: inline-block;
+	padding: 0 10px;
+	margin-bottom: 10px;
+}
+.start_input > div > div input {
+	width: 100%;
+	padding: 4px;
+}
+.start_input > div > div:after {
+	content: ''; display: block; clear: both; float: none;
+}
+.start_input > div > div img {
+	width: 100%;
+	height: 100%;
+	margin-bottom: 10px;
+}
+.start_input > div > div textarea {
+	width: 100%;
+	height: 150px;
+	margin-bottom: 10px;
+}
+.start_input > div > div h6 {
+	font-size: 1em;
+	line-height: 2em;
+	font-weight: bold;
+	color: #666;
+	margin-bottom: 10px;
+}
+.start_input > div > div p {
+	font-size: 0.9em;
+	line-height: 1.4em;
+	color: #666;
+	margin-bottom: 10px;
+}
+@media screen and (min-width: 1px) and (max-width: 749px) {
+	.start_input > div > div > div {
+		width: 100%;
+	}
+}
+@media screen and (min-width: 750px) and (max-width: 2500px) {
+	.start_input > div > div > div {
+		width: 49%;
+	}
+}
