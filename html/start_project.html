@@ -279,21 +279,23 @@
 					</div>
 					<div>
 						<h6>예금주명</h6>
-						<input type="number" placeholder="계좌에 등록된 예금주명과 일치해야 합니다."/>
+						<input type="number" placeholder="계좌에 등록된 예금주명과 일치해야 합니다." />
 					</div>
 					<div>
 						<h6>계좌번호</h6>
-						<input type="number" placeholder="숫자로만 입력하세요."/>
+						<input type="number" placeholder="숫자로만 입력하세요." />
 					</div>
 					<div>
 						<h6>계좌종류</h6>
 						<input type="radio" name="p_bank_num" value="1" checked>개인
-						<input type="radio" name="p_bank_num" value="2">사업자(개인사업자 포함)
+						<input type="radio" name="p_bank_num" value="2">사업자(개인사업자
+						포함)
 					</div>
 					<div>
 						<h6>예금주 주민등록번호</h6>
-						<p>입력하신 주민등록번호는 입금 계좌를 인증하고, 텀블벅 수수료에 대한 세금계산서(영수증)을 발행하기 위해서만 사용됩니다.</p>
-						<input type="number" placeholder="숫자로만 입력해주세요"/>
+						<p>입력하신 주민등록번호는 입금 계좌를 인증하고, 텀블벅 수수료에 대한 세금계산서(영수증)을 발행하기 위해서만
+							사용됩니다.</p>
+						<input type="number" placeholder="숫자로만 입력해주세요" />
 					</div>
 				</div>
 			</div>
@@ -316,9 +318,12 @@
 	<script type="text/javascript">
 		$(function() {
 			$(".start_input > div > p").click(function() {
-				//$(this).focus();
-				//$(".start_input > div > div").slideUp();
-				$(this).next().toggle();
+				$(".start_input > div > div").slideUp(0);
+				$(this).next().slideToggle(0, function() {
+					$('html, body').animate({
+						scrollTop : $(this).prev().offset().top
+					}, 500);
+				});
 			});
 		});
 	</script>
