@@ -321,7 +321,7 @@
 				$(".start_input > div > div").slideUp(0);
 				$(this).next().slideToggle(0, function() {
 					$('html, body').animate({
-						scrollTop : $(this).prev().offset().top
+						scrollTop : $(this).prev().offset().top - 140
 					}, 500);
 				});
 			});
