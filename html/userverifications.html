@@ -11,7 +11,19 @@
 <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
 <!-- 나눔고딕 웹폰트 -->
 <link href="../assets/css/nanumfont.css" rel="stylesheet">
+<style type="text/css">
+  .b_footer{
+    margin-top: 300px;
 
+  }
+  .a_footer{
+    margin-top: 10px;
+    text-align: left;
+    margin-bottom: 20px;
+  }
+
+
+</style>
 <!-- IE8 이하 버전 지원 -->
 <!--[if lt IE 9]>
       <script type="text/javascript" src="../assets/js/html5shiv.min.js"></script>
@@ -28,7 +40,41 @@
 <link rel="stylesheet" href="../css/common.css">
 </head>
 <body>
-	<h2>help</h2>
+ <article class="container">
+    <div class="col-md-12">
+      <div class="page-header">
+        <h1>비밀번호 찾기 <small>CF</small></h1>
+      </div>
+
+      <div class=" a_footer">
+        
+                     <h1><small>cf 가입하실 때 사용하신 이메일을 입력하시면 새 비밀번호를 보내드립니다.</small></h1>
+        </div>
+        
+        </div>
+
+
+      <form class="form-horizontal">
+        <div class="form-group">
+        
+          <label class="col-sm-3 control-label" for="inputEmail">가입하신 이메일주소</label>
+          <div class="col-sm-6">
+            <input class="form-control" id="inputEmail" type="email" placeholder="가입하신 이메일 주소를 입력해 주세요">
+          </div>
+        </div>
+        </form>
+        
+
+        <div class="form-group b_footer">
+          <div class="col-sm-12 text-center">
+            <a href="#" data-role="button" class="btn btn-primary" type="submit">새비밀번호 받기</a><i class="fa fa-check spaceLeft"></i>
+            <a href="login.html" data-role="button" class="btn btn-danger" type="submit">이전화면</a><i class="fa fa-times spaceLeft"></i>
+            
+          </div>
+      
+    </div>
+
+  </article>
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script src="../assets/js/jquery.min.js"></script>
