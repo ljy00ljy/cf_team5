@@ -596,10 +596,14 @@ address {
 }
 .info_side > div {
 	width: 100%;
-	padding: 20px;
 	background: #eee;
 	border-radius: 10px;
 	margin-bottom: 20px;
+}
+.info_side > div a {
+	width: 100%;
+	display: block;
+	padding: 20px;
 }
 .info_side > div h6 {
 	margin-bottom: 10px;
@@ -625,6 +629,103 @@ address {
 	
 }
 
+
+
+/* rewards */
+.rewards {
+	width: 100%;
+}
+.rewards > div {
+	width: 100%;
+	padding: 20px;
+	border-bottom: 2px solid #eee;
+}
+.rewards > div:hover {
+	background: #eee;
+}
+.rewards > div > form {
+	width: 100%;
+}
+.rewards > div > form > div {
+	width: 100%;
+}
+.rewards > div > form > div > input {
+	width: 150px;
+	padding:4px;
+	font-size: 1.2em;
+	font-weight: bold;
+	color: #666;
+	text-align: right;
+}
+.rewards > div > form > div > p {
+	font-size: 0.9em;
+	line-height: 1.6em;
+	color: blue;
+}
+.rewards > div > form > div > button {
+	width: 120px;
+	margin-top: 10px;
+	padding : 10px;
+	
+}
+.rewards > div > div:last-child {
+	margin-top: 10px;
+	border-top: solid 1px pink;
+}
+.rewards > div > div p {
+	margin-top: 10px;
+	font-size: 1em;
+	line-height: 1.4em;
+}
+
+
+
+/* payment */
+.payment_title {
+	width: 100%;
+	margin-bottom: 20px;
+	padding: 30px 20px 20px 20px;
+	background: skyblue;
+}
+.payment_title h5 {
+	font-size: 1.6em;
+	line-height: 1.6em;
+	font-weight: bold;
+	color: #fff;
+	margin-bottom: 20px;
+}
+.payment_title h5 > span {
+	color: blue;
+}
+.payment_title p {
+	font-size: 1em;
+	line-height: 1.4em;
+	font-weight: bold;
+	color: #fff;
+}
+.payment_title p > span {
+	font-size: 1.6em;
+	color: blue;
+}
+.payment {
+	width: 100%;
+}
+.payment > div > p {
+	font-size: 0.9em;
+	font-weight: bold;
+	color: #999;
+}
+.payment > div > a {
+	width: 100%;
+	display: block;
+	margin: 10px 0 10px 0;
+	padding: 20px;
+	font-size: 1.4em;
+	font-weight: bold;
+	color: #666;
+	border: 1px solid #eee;
+	border-radius: 10px;
+}
 
 
 
