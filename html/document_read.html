@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<title></title>
+
+<!-- Bootstrap -->
+<link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+<!-- 나눔고딕 웹폰트 -->
+<link href="../assets/css/nanumfont.css" rel="stylesheet">
+
+<!-- IE8 이하 버전 지원 -->
+<!--[if lt IE 9]>
+      <script type="text/javascript" src="../assets/js/html5shiv.min.js"></script>
+      <script type="text/javascript" src="../assets/js/respond.min.js"></script>
+      <![endif]-->
+
+<!-- IE10 반응형 웹 버그 보완 -->
+<!-- [if gt IE 9]>
+    <link rel="stylesheet" type="text/css" href="../assets/css/ie10.css" />
+    <script type="text/javascript" src="../assets/js/ie10.js"></script>
+    <![endif]-->
+
+<link rel="stylesheet" href="../css/reset.css">
+<link rel="stylesheet" href="../css/common.css">
+</head>
+<body>
+
+	<!-- mypage_header -->
+	<div class="mypage_header">
+		<h3>커뮤니티</h3>
+		<p>1번 게시판</p>
+	</div>
+	<!-- //mypage_header -->
+
+	<!-- document_read -->
+	<div class="container">
+		
+		<!-- 게시판 제목 -->
+		<h3 class="page-header">게시판 제목</h3>
+		<!-- //게시판 제목 -->
+
+		<!-- 글쓴이 정보 -->
+		<div class="alert alert-info">
+			<h3 style="margin: 0;">
+				제목 제목<br /> <small> 글쓴이 <a href="mailto:메일주소"> <i
+						class="glyphicon glyphicon-envelope"></i>
+				</a> / 조회수 : 555 / 작성일시 : 2016-11-11 11:11:11
+				</small>
+			</h3>
+		</div>
+		<!-- //글쓴이 정보 -->
+
+		<!-- 첨부파일 목록 -->
+		<table class="table table-bordered">
+			<tr>
+				<th class="warning" style="width: 100px">첨부파일</th>
+				<td>
+					<!-- 다운로드 링크 --> 
+					<a href="#" class="btn btn-link btn-xs">첨부파일이름</a>
+				</td>
+			</tr>
+		</table>
+		<!-- //첨부파일 목록 -->
+
+		<!-- 내용 -->
+		<section style="padding: 0 10px 20px 10px">
+			내용 내용 내용
+		</section>
+		<!-- //내용 -->
+		
+		<!-- 다음글 / 이전글 -->
+		<table class="table table-bordered">
+			<tbody>
+				<tr>
+					<th class="success" style="width: 100px">다음글</th>
+					<td>다음 글이 없어</td>
+				</tr>
+				<tr>
+					<th class="success" style="width: 100px">이전글</th>
+					<td>이전 글도 없어</td>
+				</tr>
+			</tbody>
+		</table>
+		<!-- //다음글 / 이전글 -->
+		
+		<!-- 버튼들 : category 값에 대한 상태유지 필요함 -->
+		<div class="clearfix">
+			<div class="pull-right">
+				<a href="../html/comunity.html" class="btn btn-success">커뮤니티 목록</a>
+				<a href="../html/document_list.html"
+				class="btn btn-info">게시물 목록</a>
+				<a href="../html/document_write.html"
+				class="btn btn-primary">글쓰기</a>
+				<!-- 수정, 삭제 대상을 지정하기 위해서 글 번호가 전달되어야 한다. -->
+				<a href="../html/document_update.html" class="btn btn-warning">수정하기</a>
+				<a href="../html/document_delete.html" class="btn btn-danger">삭제하기</a>
+			</div>
+		</div>
+		<!-- //버튼틀 -->
+		
+	</div>
+	<!-- //document_read -->
+
+
+
+
+
+
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="../assets/js/jquery.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="../assets/js/bootstrap.min.js"></script>
+</body>
+</html>
