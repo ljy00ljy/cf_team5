@@ -28,12 +28,22 @@
 <link rel="stylesheet" href="../css/common.css">
 </head>
 <body>
-
-	<!-- legal -->
 	<div class="container">
-		<h2 style="font-size: 3em;">이용약관</h2>
+		<div class="find_user">
+			<h3>비밀번호 재설정</h3>
+			<p>aaaa@bbb.ccc 메일로 발송된 인증번호를 입력하세요.</p>
+			
+			<form method="post" action="#">
+				<div class="form-group">
+					<label for="user_pw_mail">인증번호</label> <input type="email" name="user_pw_mail"
+						placeholder="인증번호 입력" />
+				</div>
+				<div class="forn-group">
+				<button type="submit">메일 발송</button>
+				</div>
+			</form>
+		</div>
 	</div>
-	<!-- //legal -->
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script src="../assets/js/jquery.min.js"></script>

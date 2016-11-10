@@ -63,13 +63,14 @@ a:hover {
 /* m_thumb */
 .m_thumb {
 	width: 100%;
-	text-align: center;
 	margin-bottom: 30px;
+	position: relative;
+	text-align: center;
 }
 .m_thumb:after {
 	content: ''; display: block; clear: both; float: none;
 }
-.m_thumb li {
+.m_thumb a {
 	width: 280px;
 	height: 430px;
 	margin: 10px;
@@ -173,6 +174,7 @@ a:hover {
 	border: 1px solid #eee;
 	margin: auto;
 	padding: 20px 20px;
+	color: #666;
 }
 .loginbox label {
 	margin-top: 5px;
@@ -202,6 +204,52 @@ a:hover {
 	content:''; display: block; clear: both; float:none;
 }
 
+
+
+/* find_user */
+.find_user {
+	width: 300px;
+	border: 1px solid #eee;
+	margin: auto;
+	padding: 20px 20px;
+	color: #666;
+}
+.find_user > h3 {
+	font-size: 1.4em;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+.find_user > p {
+	font-size: 1em;
+	margin-bottom: 20px;
+}
+.find_user label {
+	margin-top: 5px;
+}
+.find_user input {
+	float: right;
+	padding: 2px 2px;
+}
+.find_user button {
+	width: 100%;
+	margin-bottom: 20px;
+	padding: 8px 5px;
+	border: 0;
+	border-radius: 10px;
+	background: #fc6d6d;
+	color: white;
+	font-weight: bold;
+	font-size: 1.2em;
+}
+.find_user > form > div > a {
+	padding: 0 20px;
+}
+.find_user > form > div > a:last-child {
+	float: right;
+}
+.find_user:after {
+	content:''; display: block; clear: both; float:none;
+}
 
 /* footer &*/
 .footer_header {
