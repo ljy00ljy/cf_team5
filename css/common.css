@@ -779,4 +779,39 @@ address {
 
 
 
-
+/* comunity_main */
+.comunity_main {
+	width: 100%;
+	position: relative;
+}
+.comunity_main > div {
+	margin-bottom: 20px;
+}
+.comunity_main > div> h4 {
+	width: 100%;
+	font-size: 1.4em;
+	font-weight: bold;
+	color: #666;
+	padding-bottom: 10px;
+	border-bottom: 1px solid red;
+	margin-bottom: 10px;
+}
+.comunity_main > div > a {
+	display: block;
+	position: absolute;
+	top: 0px;
+	right: 15px;
+	font-size: 0.8em;
+	padding: 5px 5px;
+	color: white;
+	background: skyblue;
+	border-radius: 5px;
+}
+.comunity_main > div > p {
+	width: 100%;
+}
+.comunity_main > div > p > a {
+	font-size: 1em;
+	line-height: 1.6em;
+	color: #666;
+}
