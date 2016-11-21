@@ -9,6 +9,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import team5.helper.BaseController;
 
+
+/** 
+ * rewards.jsp 
+ * money value=최소값 이하 선택하기 불가
+ * 
+ *  */
 /**
  * Servlet implementation class Index
  */

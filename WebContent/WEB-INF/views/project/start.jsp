@@ -34,19 +34,19 @@
 				<p>어려운 단어나 복잡한 방식을 몰라도, 창작자라면 누구나 쉽게 프로젝트를 시작할 수 있습니다. 모든 텀블벅
 					프로젝트는 다음 세 단계를 통해 완성됩니다.</p>
 				<div>
-					<img src="${pageContext.request.contextPath }/assets/img/start2-1.png" alt="#" />
+					<img src="${pageContext.request.contextPath }/assets/img/start2-1.png" alt="" />
 					<h4>프로젝트 만들기</h4>
 					<p>창작자 자신이 누구이고, 어떤 창작 아이디어를 실현시키고 싶은지 소개하는 프로젝트 페이지를 만듭니다.
 						후원자들에게 금액대별 특별한 선물들을 약속합니다.</p>
 				</div>
 				<div>
-					<img src="${pageContext.request.contextPath }/assets/img/start2-2.png" alt="#" />
+					<img src="${pageContext.request.contextPath }/assets/img/start2-2.png" alt="" />
 					<h4>펀딩 진행하기</h4>
 					<p>정해진 기간 동안 후원자를 모으기 위해 지인들과 SNS 등을 통해 열심히 홍보합니다. 목표 금액을 달성하면,
 						펀딩 마감일 다음날 후원금이 계좌로 입금됩니다.</p>
 				</div>
 				<div>
-					<img src="${pageContext.request.contextPath }/assets/img/start2-3.png" alt="#" />
+					<img src="${pageContext.request.contextPath }/assets/img/start2-3.png" alt="" />
 					<h4>만들고 보답하기</h4>
 					<p>전달받은 후원금으로 본격적인 창작 활동에 돌입합니다. 틈틈히 창작 진척사항을 알리고, 약속한 날짜에 창작의
 						결실을 선물로 모두 전달하면 프로젝트가 끝납니다.</p>
