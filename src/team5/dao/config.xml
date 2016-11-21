@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+    PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<!-- MySQL 접속 정보를 지정한다. -->
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC"></transactionManager>
+			<dataSource type="POOLED">
+				<property name="driver" value="com.mysql.jdbc.Driver"/>
+				<property name="url"
+					value="jdbc:mysql://localhost:3306/00-team5?characterEncoding=UTF8"/>
+				<property name="username" value="root"/>
+				<property name="password" value="root"/>
+			</dataSource>
+
+		</environment>
+	</environments>
+
+	<!-- 실행할 SQL문을 정의한 Mapper XML의 경로를 지정한다. -->
+	<mappers>
+		<mapper resource="team5/mapper/BbsCommentMapper.xml" />
+		<mapper resource="team5/mapper/BbsDocumentMapper.xml" />
+		<mapper resource="team5/mapper/FileMapper.xml" />
+		<mapper resource="team5/mapper/MemberMapper.xml" />
+		<mapper resource="team5/mapper/PledgesMapper.xml" />
+		<mapper resource="team5/mapper/PresentMapper.xml" />
+		<mapper resource="team5/mapper/ProjectMapper.xml" />
+		
+	</mappers>
+</configuration>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="FileMapper">
+
+	<resultMap id="file" type="team5.model.File">
+		<result property="id" column="id" />
+		<result property="originName" column="origin_name" />
+		<result property="fileDir" column="file_dir" />
+		<result property="fileName" column="file_name" />
+		<result property="contentType" column="content_type" />
+		<result property="fileSize" column="file_size" />
+		<result property="redDate" column="reg_date" />
+		<result property="memberId" column="member_id" />
+		<result property="bbsDocumentId" column="bbs_document_id" />
+		<result property="projectId" column="project_id" />
+	</resultMap>
+
+	
+	
+</mapper>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="ProjectMapper">
+
+	<resultMap id="project_mapper" type="team5.model.Project">
+		<result property="id" column="id" />
+		<result property="title" column="title" />
+		<result property="titleS" column="title_s" />
+		<result property="titleImage" column="title_image" />
+		<result property="titleText" column="title_text" />
+		<result property="category" column="catecory" />
+		<result property="url" column="url" />
+		<result property="producerImage" column="producer_image" />
+		<result property="producerName" column="producer_name" />
+		<result property="producerInfo" column="producer_info" />
+		<result property="producerArea" column="producer_area" />
+		<result property="projectMoney" column="project_money" />
+		<result property="startDate" column="start_date" />
+		<result property="endDate" column="end_date" />
+		<result property="legal" column="legal" />
+		<result property="video" column="video" />
+		<result property="story" column="story" />
+		<result property="projectStatus" column="project_status" />
+		<result property="memberId" column="member_id" />
+	</resultMap>
+
+	
+	
+</mapper>
