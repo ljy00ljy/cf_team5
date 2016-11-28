@@ -24,9 +24,32 @@
 		<result property="video" column="video" />
 		<result property="story" column="story" />
 		<result property="projectStatus" column="project_status" />
+		<result property="regDate" column="reg_date" />
+		<result property="ipAddress" column="ip_address" />
 		<result property="memberId" column="member_id" />
 	</resultMap>
 
-	
+	<!-- 프로젝트 저장하기 -->
+	<insert id="insert_project" parameterType="team5.model.Project"
+		useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO project (
+			title, title_s, title_image, title_text,
+			category, url, 
+			producer_image, producer_name, producer_info, producer_area, 
+			project_money, start_date, end_date, 
+			legal, video, story, project_status, 
+			reg_date, ip_address, 
+			member_id
+		) VALUES (
+			#{title}, #{title_s}, #{title_image}, #{title_text}, 
+			#{category}, #{url}, 
+			#{producer_image}, #{producer_name}, #{producer_info}, #{producer_area}, 
+			#{project_money}, #{start_date}, #{end_date}, 
+			#{legal}, #{video}, #{story}, #{project_status}, 
+			now(), #{ip_address},
+			#{member_id}
+		)
+	</insert>
+	<!-- //프로젝트 저장하기 -->
 	
 </mapper>

@@ -222,6 +222,8 @@
 	</div>
 	<!-- //m_thumb -->
 
+	
+
 	<%@ include file="/WEB-INF/views/inc/footer.jsp"%>
 </body>
 </html>

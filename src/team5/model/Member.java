@@ -16,7 +16,7 @@ public class Member {
 	private String bankBrand;
 	private String bankNum;
 	private String bankUser;
-	private String redDate;
+	private String regDate;
 	private String editDate;
 	// 비밀번호 수정용
 	private String newUserPw;
@@ -107,10 +107,10 @@ public class Member {
 		this.bankUser = bankUser;
 	}
 	public String getRedDate() {
-		return redDate;
+		return regDate;
 	}
 	public void setRedDate(String redDate) {
-		this.redDate = redDate;
+		this.regDate = redDate;
 	}
 	public String getEditDate() {
 		return editDate;
@@ -129,7 +129,7 @@ public class Member {
 		return "Member [id=" + id + ", userId=" + userId + ", userPw=" + userPw + ", name=" + name + ", tel=" + tel
 				+ ", gender=" + gender + ", birthdate=" + birthdate + ", postcode=" + postcode + ", addr1=" + addr1
 				+ ", addr2=" + addr2 + ", profileImg=" + profileImg + ", bankBrand=" + bankBrand + ", bankNum="
-				+ bankNum + ", bankUser=" + bankUser + ", redDate=" + redDate + ", editDate=" + editDate
+				+ bankNum + ", bankUser=" + bankUser + ", redDate=" + regDate + ", editDate=" + editDate
 				+ ", newUserPw=" + newUserPw + "]";
 	}
 	

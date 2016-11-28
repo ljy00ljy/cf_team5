@@ -51,3 +51,20 @@
 
 
 
+<!-- handlebars -->
+<script src="${pageContext.request.contextPath }/plugins/handlebars/handlebars-v4.0.5.js"></script>
+
+<!-- ajax helper -->
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/plugins/ajax/ajax_helper.css" />
+<script src="${pageContext.request.contextPath }/plugins/ajax/ajax_helper.js"></script>
+
+<!-- ajaxForm -->
+<script src="${pageContext.request.contextPath }/plugins/ajax-form/jquery.form.min.js"></script>
+
+<!-- 다음 우편번호 검색 -->
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<script src="${pageContext.request.contextPath }/plugins/daum-postcode/js/daumPostCode.js"></script>
+
+<!-- CKEditer -->
+<script src="//cdn.ckeditor.com/4.5.11/standard/ckeditor.js"></script>
+

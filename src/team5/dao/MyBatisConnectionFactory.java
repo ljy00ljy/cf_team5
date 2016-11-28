@@ -13,7 +13,7 @@ public class MyBatisConnectionFactory {
 	
 	static {
 		try {
-			Reader reader = Resources.getResourceAsReader("00-team5/dao/config.xml");
+			Reader reader = Resources.getResourceAsReader("team5/dao/config.xml");
 			
 			if (sqlSessionFactory == null) {
 				sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);

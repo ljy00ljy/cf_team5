@@ -1,6 +1,6 @@
 package team5.model;
 
-public class project {
+public class Project {
 	// 기본
 	private int projectId;
 	private String title;
@@ -20,6 +20,8 @@ public class project {
 	private String video;
 	private String story;
 	private String projectStatus;
+	private String regDate;
+	private String ipAddress;
 	// 참조
 	private int memberId;
 	//
@@ -131,6 +133,18 @@ public class project {
 	public void setProjectStatus(String projectStatus) {
 		this.projectStatus = projectStatus;
 	}
+	public String getRegDate() {
+		return regDate;
+	}
+	public void setRegDate(String regDate) {
+		this.regDate = regDate;
+	}
+	public String getIpAddress() {
+		return ipAddress;
+	}
+	public void setIpAddress(String ipAddress) {
+		this.ipAddress = ipAddress;
+	}
 	public int getMemberId() {
 		return memberId;
 	}
@@ -144,7 +158,9 @@ public class project {
 				+ producerImage + ", producerName=" + producerName + ", producerInfo=" + producerInfo
 				+ ", producerArea=" + producerArea + ", projectMoney=" + projectMoney + ", startDate=" + startDate
 				+ ", endDate=" + endDate + ", legal=" + legal + ", video=" + video + ", story=" + story
-				+ ", projectStatus=" + projectStatus + ", memberId=" + memberId + "]";
+				+ ", projectStatus=" + projectStatus + ", regDate=" + regDate + ", ipAddress=" + ipAddress
+				+ ", memberId=" + memberId + "]";
 	}
+	
 	
 }
