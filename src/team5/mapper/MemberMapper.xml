@@ -24,7 +24,98 @@
 		<result property="redDate" column="reg_date" />
 		<result property="editDate" column="edit_date" />
 	</resultMap>
+<!-- 아이디 중복검사를 수행한다 -->
+    <select id="selectUserIdCount" parameterType="team5.model.Member" resultType="int">
+        SELECT count(id) FROM member WHERE user_id=#{userId}
+    </select>
+     
+        <!-- 회원정보를 저장한다 : 가입 -->
+	<insert id="insertMember" parameterType="team5.model.Member" 
+		useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO member (
+			user_id, user_pw, name,
+			tel, gender, birthdate, 
+			postcode, addr1, addr2,
+        	profile_img, bank_brand, bank_num ,bank_user,
+            reg_date, edit_date  
+		) VALUES (
+			#{userId}, password(#{userPw}),#{name},
+			#{tel}, #{gender}, #{birthdate},
+			#{postcode}, #{addr1}, #{addr2},
+        	#{profileImg}, #{bankBrand}, #{bankNum}, #{bankUser},
+            now(), now()
+		)
+	</insert>
+	
+	<!-- 아이디와 비밀번호가 일치하는 회원정보를 조회한다. -->
+    <select id="selectLoginInfo" parameterType="team5.model.Member" resultMap="member">
+        SELECT
+        	id, user_id, user_pw, name,
+			tel, gender,
+        	DATE_FORMAT(birthdate, '%Y-%m-%d') AS birthdate,
+        	postcode, addr1, addr2,
+        	profile_img, bank_brand, bank_num ,bank_user,
+        	reg_date, edit_date
+        FROM member
+        WHERE user_id=#{userId} AND user_pw=password(#{userPw})
+        ORDER BY id DESC
+        LIMIT 0, 1
+    </select>
+    
+    <!-- 비밀번호 재발급: 이메일주소가 일치하는 비밀번호를 변경한다. -->
+	<update id="updateMemberPasswordByEmail" parameterType="team5.model.Member">
+		UPDATE member SET user_pw=password(#{userPw}), edit_date=now()
+		WHERE user_id=#{userId};
+	</update>
+	
+	<!-- 현재 로그인 중인 회원의 비밀번호를 검사한다. -->
+    <select id="selectMemberPasswordCount" parameterType="team5.model.Member" 
+    	resultType="int">
+        SELECT count(id) FROM member 
+        WHERE id=#{id} AND user_pw=password(#{userPw})
+    </select>
+	
+	<!-- 회원정보를 삭제한다 : 탈퇴 -->
+	<delete id="deleteMember" parameterType="team5.model.Member">
+		DELETE FROM member WHERE id=#{id};
+	</delete>
+	
+	<!-- 회원정보를 변경한다 -->
+	<update id="updateMember" parameterType="team5.model.Member">
+		UPDATE member SET
+			name=#{name}, email=#{email}, gender=#{gender}, birthdate=#{birthdate},
+			tel=#{tel}, postcode=#{postcode}, addr1=#{addr1}, addr2=#{addr2},
+			bank_brand=#{bankBrand}, bank_num=#{bankNum},bank_user#={bankUser},
+			edit_date=now()
+			
+			<if test="newUserPw != null and newUserPw != ''">
+				, user_pw=password(#{newUserPw})
+			</if>
+			
+			<choose>
+				<when test="profileImg == ''">
+					, profile_img=null
+				</when>
+				<when test="profileImg != null">
+					, profile_img=#{profileImg}
+				</when>
+			</choose>
+		
+		WHERE id=#{id}
+	</update>
+	
+	<!-- 일련번호에 의한 회원정보 조회 -->
+    <select id="selectMember" parameterType="team5.model.Member" 
+    	resultMap="member">
+        SELECT
+        	id, user_id, user_pw, name,
+			tel, gender,
+        	DATE_FORMAT(birthdate, '%Y-%m-%d') AS birthdate,
+        	postcode, addr1, addr2,
+        	profile_img, bank_brand, bank_num ,bank_user,
+        	reg_date, edit_date
+        FROM member
+        WHERE id=#{id}
+    </select>
 
-	
-	
 </mapper>

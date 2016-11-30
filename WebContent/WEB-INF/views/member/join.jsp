@@ -10,7 +10,22 @@
 <head>
 	<%@ include file="/WEB-INF/views/inc/head.jsp"%>
 	
-	
+	 <script type="text/javascript">
+			$(function(){
+				$("#myform").validate({
+					rules:{
+						profile_img:{
+							extension:"jpg|gif|png"
+						}
+					},
+					messages:{
+						profile_img:{
+							extension:"프로필 사진은 jpg,png,gif 형식만 가능합니다."
+						}
+					}
+				});
+			});
+		</script>
 	
 </head>
 <body>
@@ -36,7 +51,7 @@
 						class="form-control" />
 				</div>
 			</div>
-
+<!-- 
 			<div class="form-group">
 				<label class="col-sm-2" for="inputEmail">이메일 인증*</label>
 				<div class="col-sm-10">
@@ -65,7 +80,7 @@
 					<p class="help-block">전송된 인증번호를 입력해주세요.</p>
 				</div>
 			</div>
-
+ -->
 			<div class="form-group">
 				<label for="user_pw" class="col-md-2">비밀번호*</label>
 				<div class="col-md-10">
@@ -169,7 +184,7 @@
 			<div class="form-group">
 				<label for="bank_name" class="col-md-2">예금주</label>
 				<div class="col-md-10">
-					<input type="text" name="bank_name" id="bank_name"
+					<input type="text" name="bank_user" id="bank_user"
 						class="form-control" />
 				</div>
 			</div>

@@ -10,7 +10,27 @@
 <head>
 <%@ include file="/WEB-INF/views/inc/head.jsp"%>
 
-
+		<script type="text/javascript">		
+		$(function() {
+				// id 속성이 joinForm인 <form>태그 안의 submit 버튼을 누른 경우
+				$("#joinForm").submit(function() {
+					
+					/** 체크박스 선택여부 검사 */
+					if (!$("input[name='join_user_agree']").is(":checked")) {
+						alert("회원가입 약관 동의해 주세요.");
+						$("input[name='join_user_agree']:eq(0)").focus();
+						return false;
+					}
+					
+					if (!$("input[name='join_priv_agree']").is(":checked")) {
+						alert("개인정보 처리방침 약관 동의해 주세요.");
+						$("input[name='join_priv_agree']:eq(0)").focus();
+						return false;
+					}
+				
+				});
+			});
+		</script>
 
 </head>
 <body>
@@ -283,9 +303,9 @@
 						<div class="panel-footer">
 							<div style="overflow: hidden">
 								<div class="col-sm-offset-3 col-sm-6">
-									<a href="${pageContext.request.contextPath }/member/join.do" data-role="button"
-										class="btn btn-lg btn-primary btn-block" type="submit">회원
-										가입</a> <input type="hidden" name="rq_url" value="/">
+									<input data-role="button"
+										class="btn btn-lg btn-primary btn-block" type="submit" value="회원가입">
+										<input type="hidden" name="rq_url" value="/">
 								</div>
 							</div>
 						</div>

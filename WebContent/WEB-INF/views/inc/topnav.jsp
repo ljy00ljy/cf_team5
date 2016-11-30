@@ -25,17 +25,30 @@
 					<li><a href="${pageContext.request.contextPath }/content/comunity.do">커뮤니티</a></li>
 					<li><a href="${pageContext.request.contextPath }/content/help.do">도움말</a></li>
 				</ul>
-
-			</div>
-			<!-- //m_nav_l -->
-			<!-- m_nav_r -->
-			<div class="m_nav_r dropdown">
-
-				<a class="dropdown-toggle" href="${pageContext.request.contextPath }/member/login.do">로그인</a> <a
-					id="dropdownMenu1" class="dropdown-toggle" role="button"
-					data-toggle="dropdown" href="#">내정보<span class="lock"></span><b
-					class="caret"></b></a>
-				<ul class="dropdown-menu pull-right" role="menu"
+             
+             	<div class="m_nav_r dropdown">
+			<c:choose>
+				<c:when test="${loginInfo==null}">
+					<%-- 로그인  --%>
+			
+						<a class="dropdown-toggle" href="${pageContext.request.contextPath }/member/login.do">로그인</a> 
+					
+					<%-- //로그인  --%>
+				</c:when>
+				<c:otherwise>
+					<!-- 로그인 된 경우 -->
+					<ul class="nav navbar-nav navbar-right">
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+							data-toggle="dropdown" style="padding: 5px"> <!-- 쿠키값에 따른 프로필 이미지 표시 -->
+								<c:if test="${cookie.profileThumbnail!=null}">
+									<img src="${pageContext.request.contextPath}/download.do?file=${cookie.profileThumbnail.value}"
+										class="img-circle" />
+								</c:if> <!-- 쿠키값에 따른 프로필 이미지 표시 끝 --> ${loginInfo.name}님 <span
+								class="caret"></span></a> <!-- 로그인한 경우 표시될 메뉴 -->
+							
+							
+							
+								<ul class="dropdown-menu pull-right" role="menu"
 					aria-labelledby="dropdownMenu1">
 					<li role="presentation"><a role="menuitem" tabindex="-1"
 						href="${pageContext.request.contextPath }/member/mypledges.do">내후원현황</a></li>
@@ -47,8 +60,20 @@
 						href="${pageContext.request.contextPath }/member/out_user.do">회원탈퇴</a></li>
 					<li role="presentation" class="divider"></li>
 					<li><a href="${pageContext.request.contextPath }/member/logout.do">로그아웃</a></li>
-				</ul>
+				</ul></li>
+					</ul>
+						
+					<!-- //로그인 된 경우 -->
+				</c:otherwise>
+			</c:choose>
+</div>
+
+
+
+
+
 			</div>
+
 			<!-- //m_nav_r -->
 		</div>
 		<!-- //container -->
