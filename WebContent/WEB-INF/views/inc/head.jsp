@@ -63,7 +63,7 @@
 
 <!-- 다음 우편번호 검색 -->
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-<script src="${pageContext.request.contextPath }/assets/js/daumPostCode.js"></script>
+<script src="${pageContext.request.contextPath }/plugins/daum-postcode/daumPostCode.js"></script>
 
 <!-- CKEditer -->
 <script src="//cdn.ckeditor.com/4.5.11/standard/ckeditor.js"></script>

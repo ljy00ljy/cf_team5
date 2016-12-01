@@ -21,7 +21,7 @@
 		<div class="find_user">
 			<h3>회원탈퇴</h3>
 			<p>회원 탈퇴 비밀번호 입력하세요</p>
-			<form method="post" action="${pageContext.request.contextPath }/member/out_user.do">
+			<form method="post" action="${pageContext.request.contextPath }/member/out_user_ok.do">
 				<div class="form-group">
 					<label for="user_pw">비밀번호</label> <input type="password"
 						name="user_pw" placeholder="비밀번호입력" />

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="INFO">
 	<Appenders>
-		<RollingFile name="RollingFile" fileName="E:/works_ljy/workspace/00-team5/logs/log.log"
-			filePattern="E:/works_ljy/workspace/00-team5/logs/log-%d{yyyy-MM-dd}.log" append="false">
+		<RollingFile name="RollingFile" fileName="C:/eclipse/workspace/logs/log.log"
+			filePattern="C:/eclipse/workspace/logs/log-%d{yyyy-MM-dd}.log" append="false">
 
 			<PatternLayout pattern="%d %5p [%c] %m%n" />
 			<Policies>
