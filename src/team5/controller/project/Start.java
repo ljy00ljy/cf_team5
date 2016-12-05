@@ -25,10 +25,10 @@ public class Start extends BaseController {
 		web = WebHelper.getInstance(request, response);
 
 		// 로그인 중이 아니라면 이 페이지를 동작시키면 안됨.
-		/*if (web.getSession("loginInfo") == null) {
-			web.redirect(web.getRootPath() + "/main/index.do", "로그인 후 이용 가능합니다.");
+		if (web.getSession("loginInfo") == null) {
+			web.redirect(web.getRootPath() + "/member/login.do", "로그인 후 이용 가능합니다.");
 			return null;
-		}*/
+		}
 
 		return "project/start";
 

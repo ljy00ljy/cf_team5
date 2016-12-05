@@ -8,6 +8,7 @@
 	<resultMap id="bbs_document" type="team5.model.BbsDocument">
 		<result property="id" column="id" />
 		<result property="category" column="category" />
+		<result property="writerName" column="writer_name" />
 		<result property="subject" column="subject" />
 		<result property="content" column="content" />
 		<result property="hit" column="hit" />

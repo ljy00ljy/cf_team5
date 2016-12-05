@@ -12,7 +12,14 @@
 		<result property="projectId" column="project_id" />
 		
 	</resultMap>
-
 	
+	<!-- insert present -->
+	<insert id="insert_present" parameterType="team5.model.Present" useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO present (
+			money, info, project_id
+		) VALUES (
+			#{money}, #{info}, #{projectId}
+		)
+	</insert>
 	
 </mapper>

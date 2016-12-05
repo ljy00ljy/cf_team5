@@ -3,6 +3,7 @@ package team5.model;
 public class BbsComment {
 	// 기본
 	private int id;
+	private String writerName;
 	private String content;
 	private String regDate;
 	private String editDate;
@@ -10,13 +11,18 @@ public class BbsComment {
 	// 참조
 	private int memberId;
 	private int bbsDocumentId;
-	
-	// 
+	//
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
+	}
+	public String getWriterName() {
+		return writerName;
+	}
+	public void setWriterName(String writerName) {
+		this.writerName = writerName;
 	}
 	public String getContent() {
 		return content;
@@ -56,8 +62,9 @@ public class BbsComment {
 	}
 	@Override
 	public String toString() {
-		return "BbsComment [id=" + id + ", content=" + content + ", regDate=" + regDate + ", editDate=" + editDate
-				+ ", ipAddress=" + ipAddress + ", memberId=" + memberId + ", bbsDocumentId=" + bbsDocumentId + "]";
+		return "BbsComment [id=" + id + ", writerName=" + writerName + ", content=" + content + ", regDate=" + regDate
+				+ ", editDate=" + editDate + ", ipAddress=" + ipAddress + ", memberId=" + memberId + ", bbsDocumentId="
+				+ bbsDocumentId + "]";
 	}
-	
+
 }

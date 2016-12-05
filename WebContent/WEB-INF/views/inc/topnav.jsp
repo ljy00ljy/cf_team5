@@ -53,7 +53,7 @@
 					<li role="presentation"><a role="menuitem" tabindex="-1"
 						href="${pageContext.request.contextPath }/member/mypledges.do">내후원현황</a></li>
 					<li role="presentation"><a role="menuitem" tabindex="-1"
-						href="${pageContext.request.contextPath }/member/myprojects.do">내프로젝트</a></li>
+						href="${pageContext.request.contextPath }/member/myprojects.do?member_id=${loginInfo.id }">내프로젝트</a></li>
 					<li role="presentation"><a role="menuitem" tabindex="-1"
 						href="${pageContext.request.contextPath }/member/myprofile.do">내정보수정</a></li>
 							<li role="presentation"><a role="menuitem" tabindex="-1"

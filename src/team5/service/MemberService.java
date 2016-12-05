@@ -59,4 +59,10 @@ public interface MemberService {
 	 * @throws Exception
 	 */
 	public Member selectMember(Member member) throws Exception;
+	
+	
+	
+	
+	
+	
 }

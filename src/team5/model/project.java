@@ -2,34 +2,38 @@ package team5.model;
 
 public class Project {
 	// 기본
-	private int projectId;
+	private int id;
 	private String title;
 	private String titleS;
-	private String titleImg;
+	private String titleImage;
 	private String titleText;
 	private String category;
 	private String url;
 	private String producerImage;
+	private String producerImageThumb;
 	private String producerName;
 	private String producerInfo;
 	private String producerArea;
 	private int projectMoney;
+	private int nowMoney;
+	private int nowPledge;
 	private String startDate;
 	private String endDate;
 	private String legal;
 	private String video;
 	private String story;
+	private String email;
 	private String projectStatus;
 	private String regDate;
 	private String ipAddress;
 	// 참조
 	private int memberId;
 	//
-	public int getProjectId() {
-		return projectId;
+	public int getId() {
+		return id;
 	}
-	public void setProjectId(int projectId) {
-		this.projectId = projectId;
+	public void setId(int id) {
+		this.id = id;
 	}
 	public String getTitle() {
 		return title;
@@ -43,11 +47,11 @@ public class Project {
 	public void setTitleS(String titleS) {
 		this.titleS = titleS;
 	}
-	public String getTitleImg() {
-		return titleImg;
+	public String getTitleImage() {
+		return titleImage;
 	}
-	public void setTitleImg(String titleImg) {
-		this.titleImg = titleImg;
+	public void setTitleImage(String titleImage) {
+		this.titleImage = titleImage;
 	}
 	public String getTitleText() {
 		return titleText;
@@ -73,6 +77,12 @@ public class Project {
 	public void setProducerImage(String producerImage) {
 		this.producerImage = producerImage;
 	}
+	public String getProducerImageThumb() {
+		return producerImageThumb;
+	}
+	public void setProducerImageThumb(String producerImageThumb) {
+		this.producerImageThumb = producerImageThumb;
+	}
 	public String getProducerName() {
 		return producerName;
 	}
@@ -96,6 +106,18 @@ public class Project {
 	}
 	public void setProjectMoney(int projectMoney) {
 		this.projectMoney = projectMoney;
+	}
+	public int getNowMoney() {
+		return nowMoney;
+	}
+	public void setNowMoney(int nowMoney) {
+		this.nowMoney = nowMoney;
+	}
+	public int getNowPledge() {
+		return nowPledge;
+	}
+	public void setNowPledge(int nowPledge) {
+		this.nowPledge = nowPledge;
 	}
 	public String getStartDate() {
 		return startDate;
@@ -127,6 +149,12 @@ public class Project {
 	public void setStory(String story) {
 		this.story = story;
 	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	public String getProjectStatus() {
 		return projectStatus;
 	}
@@ -153,11 +181,12 @@ public class Project {
 	}
 	@Override
 	public String toString() {
-		return "project [projectId=" + projectId + ", title=" + title + ", titleS=" + titleS + ", titleImg=" + titleImg
+		return "Project [id=" + id + ", title=" + title + ", titleS=" + titleS + ", titleImage=" + titleImage
 				+ ", titleText=" + titleText + ", category=" + category + ", url=" + url + ", producerImage="
-				+ producerImage + ", producerName=" + producerName + ", producerInfo=" + producerInfo
-				+ ", producerArea=" + producerArea + ", projectMoney=" + projectMoney + ", startDate=" + startDate
-				+ ", endDate=" + endDate + ", legal=" + legal + ", video=" + video + ", story=" + story
+				+ producerImage + ", producerImageThumb=" + producerImageThumb + ", producerName=" + producerName
+				+ ", producerInfo=" + producerInfo + ", producerArea=" + producerArea + ", projectMoney=" + projectMoney
+				+ ", nowMoney=" + nowMoney + ", nowPledge=" + nowPledge + ", startDate=" + startDate + ", endDate="
+				+ endDate + ", legal=" + legal + ", video=" + video + ", story=" + story + ", email=" + email
 				+ ", projectStatus=" + projectStatus + ", regDate=" + regDate + ", ipAddress=" + ipAddress
 				+ ", memberId=" + memberId + "]";
 	}

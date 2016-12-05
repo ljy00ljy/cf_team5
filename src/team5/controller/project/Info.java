@@ -14,9 +14,10 @@ import team5.helper.BaseController;
  */
 @WebServlet("/project/info.do")
 public class Info extends BaseController {
-
 	private static final long serialVersionUID = 4969105085728740703L;
-
+	
+	
+	
 	@Override
 	public String doRun(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		

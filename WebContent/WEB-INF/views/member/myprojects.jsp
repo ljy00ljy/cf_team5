@@ -29,58 +29,43 @@
 	<div class="container">
 		<!-- myprojects m_thumb -->
 		<div class="m_thumb">
-			<!-- m_thumb item -->
-			<a href="${pageContext.request.contextPath }/project/info.do"> 
-				<img src="${pageContext.request.contextPath }/assets/img/cat01.gif" alt="" />
-				<div class="m_thumb_user">
-					<img src="http://placehold.it/40x40" alt="" />
-					<h5>고양이 첫번째 키우기 키우기 키우기1</h5>
-					<p>밥먹이기밥먹이기밥먹이기밥먹이기</p>
-				</div>
-				<div class="m_thumb_info">
-					<div class="m_thumb_info_1">
-						<p>
-							모인금액<span>230%</span>
-						</p>
-						<p>5,500,000원</p>
-					</div>
-					<div class="m_thumb_info_2">
-						<p>후원자</p>
-						<p>500 명</p>
-					</div>
-					<div class="m_thumb_info_3">
-						<p>남은기간</p>
-						<p>500 일</p>
-					</div>
-				</div>
-			</a>
-			<!-- //m_thumb item -->
-			<!-- m_thumb item -->
-			<a href="${pageContext.request.contextPath }/project/info.do"> 
-				<img src="${pageContext.request.contextPath }/assets/img/cat01.gif" alt="" />
-				<div class="m_thumb_user">
-					<img src="http://placehold.it/40x40" alt="" />
-					<h5>고양이 첫번째 키우기 키우기 키우기1</h5>
-					<p>밥먹이기밥먹이기밥먹이기밥먹이기</p>
-				</div>
-				<div class="m_thumb_info">
-					<div class="m_thumb_info_1">
-						<p>
-							모인금액<span>230%</span>
-						</p>
-						<p>5,500,000원</p>
-					</div>
-					<div class="m_thumb_info_2">
-						<p>후원자</p>
-						<p>500 명</p>
-					</div>
-					<div class="m_thumb_info_3">
-						<p>남은기간</p>
-						<p>500 일</p>
-					</div>
-				</div>
-			</a>
-			<!-- //m_thumb item -->
+			<c:choose>
+				<c:when test="${fn:length(projectList) > 0 }">
+					<c:forEach var="project" items="${projectList }">
+						<!-- m_thumb item -->
+						<a href="${pageContext.request.contextPath }/project/info.do?project_id=${project.id }">
+							<img src="${pageContext.request.contextPath }/main/download.do?file=${project.titleImage }" alt="" />
+							<div class="m_thumb_user">
+								<img src="${pageContext.request.contextPath }/main/download.do?file=${project.producerImageThumb }" alt="" />
+								<h5>${project.title }</h5>
+								<p>${project.titleText }</p>
+							</div>
+							<div class="m_thumb_info">
+								<div class="m_thumb_info_1">
+									<p>
+										모인금액<span>${project.nowMoney }</span>
+									</p>
+									<p>${project.projectMoney }</p>
+								</div>
+								<div class="m_thumb_info_2">
+									<p>후원자</p>
+									<p>${project.nowPledge } 명</p>
+								</div>
+								<div class="m_thumb_info_3">
+									<p>남은기간</p>
+									<p> 일</p>
+								</div>
+							</div>
+						</a>
+						<!-- //m_thumb item -->
+					</c:forEach>
+				</c:when>
+				<c:otherwise>
+					<p>조회된 프로젝트가 없습니다.</p>
+				</c:otherwise>
+			</c:choose>
+			
+			
 			<!-- add myprojects -->
 			<a href="${pageContext.request.contextPath }/project/start.do"> <img
 				src="http://placehold.it/200x200" alt="" /> <span

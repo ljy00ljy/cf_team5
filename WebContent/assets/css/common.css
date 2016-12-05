@@ -115,7 +115,7 @@ a:hover {
 	left: 10px;
 }
 
-.m_thumb_user>h5 {
+.m_thumb_user > h5 {
 	margin-left: 60px;
 	font-weight: bold;
 	text-align: left;
@@ -123,8 +123,8 @@ a:hover {
 	margin-bottom: 10px;
 }
 
-.m_thumb_user>p {
-	padding: 0px 10px;
+.m_thumb_user > p {
+	margin-left: 60px;
 	text-align: left;
 	font-size: 0.8em;
 	color: #aaa;
@@ -162,6 +162,7 @@ a:hover {
 	font-weight: bold;
 	margin: 0 0 0 20px;
 }
+
 .m_thumb_new {
 	
 	display: block;
@@ -179,8 +180,6 @@ a:hover {
 	width: 300px;
 	border: 1px solid #eee;
 	margin: auto;
-	margin-top: 70px;
-	margin-bottom: 50px;
 	padding: 20px 20px;
 	color: #666;
 }
@@ -219,8 +218,6 @@ a:hover {
 	width: 300px;
 	border: 1px solid #eee;
 	margin: auto;
-	margin-top: 70px;
-	margin-bottom: 50px;
 	padding: 20px 20px;
 	color: #666;
 }

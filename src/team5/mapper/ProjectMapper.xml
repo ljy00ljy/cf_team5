@@ -14,15 +14,19 @@
 		<result property="category" column="catecory" />
 		<result property="url" column="url" />
 		<result property="producerImage" column="producer_image" />
+		<result property="producerImageThumb" column="producer_image_thumb" />
 		<result property="producerName" column="producer_name" />
 		<result property="producerInfo" column="producer_info" />
 		<result property="producerArea" column="producer_area" />
 		<result property="projectMoney" column="project_money" />
+		<result property="nowMoney" column="now_money" />
+		<result property="nowPledge" column="now_pledge" />
 		<result property="startDate" column="start_date" />
 		<result property="endDate" column="end_date" />
 		<result property="legal" column="legal" />
 		<result property="video" column="video" />
 		<result property="story" column="story" />
+		<result property="email" column="email" />
 		<result property="projectStatus" column="project_status" />
 		<result property="regDate" column="reg_date" />
 		<result property="ipAddress" column="ip_address" />
@@ -35,21 +39,79 @@
 		INSERT INTO project (
 			title, title_s, title_image, title_text,
 			category, url, 
-			producer_image, producer_name, producer_info, producer_area, 
-			project_money, start_date, end_date, 
-			legal, video, story, project_status, 
-			reg_date, ip_address, 
+			producer_image, producer_image_thumb, producer_name, producer_info, producer_area, 
+			project_money, now_money, now_pledge, 
+			start_date, end_date, 
+			legal, video, story, email, project_status, 
+			reg_date,
+			ip_address, 
 			member_id
 		) VALUES (
-			#{title}, #{title_s}, #{title_image}, #{title_text}, 
+			#{title}, #{titleS}, #{titleImage}, #{titleText}, 
 			#{category}, #{url}, 
-			#{producer_image}, #{producer_name}, #{producer_info}, #{producer_area}, 
-			#{project_money}, #{start_date}, #{end_date}, 
-			#{legal}, #{video}, #{story}, #{project_status}, 
-			now(), #{ip_address},
-			#{member_id}
+			#{producerImage}, #{producerImageThumb}, #{producerName}, #{producerInfo}, #{producerArea}, 
+			#{projectMoney}, "0", "0", 
+			#{startDate}, 
+			#{endDate}, 
+			#{legal}, #{video}, #{story}, #{email}, "2", 
+			now(), 
+			#{ipAddress},
+			#{memberId}
 		)
+		
 	</insert>
-	<!-- //프로젝트 저장하기 -->
+	
+	<!-- 방금 저장한 프로젝트 id 가져오기 -->
+	<select id="select_insert_now_project_id" parameterType="team5.model.Project" resultMap="project_mapper">
+		SELECT id FROM cf5.project ORDER BY id DESC limit 0,1
+	</select>
+	
+	<!-- 등록검토중 프로젝트 조회 -->
+	<select id="count_insert_project_delay" parameterType="team5.model.Project" resultType="int">
+		SELECT COUNT(id) 
+		FROM member 
+		WHERE member_id=#{id} AND project_status="2"
+	</select>
+	
+	<!-- project.do 조회 -->
+	<select id="select_project_thumb_list" parameterType="team5.model.Project" resultMap="project_mapper">
+		SELECT 
+			id, title, title_image, title_text, category, 
+			producer_image_thumb, project_money, 
+			now_money, now_pledge, 
+			start_date, end_date, 
+			project_status
+		FROM project 
+		<where>
+			<if test="title != null and category == null and memberId == 0">
+				title LIKE concat('%', #{title}, '%')
+			</if>
+			<if test="title == null and category != null and memberId == 0">
+				category=#{category}
+			</if>
+			<if test="title == null and category == null and memberId != 0">
+				member_id=#{memberId}
+			</if>
+			<if test="title != null and category != null and memberId == 0">
+				title LIKE concat('%', #{title}, '%') and category=#{category}
+			</if>
+		</where>
+		ORDER BY 
+			project_status 
+		DESC 
+		
+			
+	</select>
+	
+	<!-- 전체 게시물 수 조회 -->
+	<!-- <select id="selectProjectCount" parameterType="team5.model.Project" resultType="int">
+		SELECT COUNT(id) 
+		FROM project
+		<where>
+			
+		</where> 
+	</select> -->
+	
+	
 	
 </mapper>

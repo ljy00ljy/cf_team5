@@ -61,6 +61,7 @@ public class LoginOk extends BaseController {
 			web.redirect(web.getRootPath() + "/index.do", "이미 로그인 하셨습니다.");
 			return null;
 		}
+		
 
 		/** (4) 파라미터 처리 */
 		// --> topbar.jsp에 배치된 폼으로부터 전송되는 입력값.

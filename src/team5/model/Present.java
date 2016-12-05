@@ -3,7 +3,7 @@ package team5.model;
 public class Present {
 	// 테이블
 	private int id;
-	private String money;
+	private int money;
 	private String info;
 	// 참조
 	private int projectId;
@@ -14,10 +14,10 @@ public class Present {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getMoney() {
+	public int getMoney() {
 		return money;
 	}
-	public void setMoney(String money) {
+	public void setMoney(int money) {
 		this.money = money;
 	}
 	public String getInfo() {
@@ -36,5 +36,6 @@ public class Present {
 	public String toString() {
 		return "Present [id=" + id + ", money=" + money + ", info=" + info + ", projectId=" + projectId + "]";
 	}
+	
 	
 }

@@ -108,6 +108,12 @@
 
 		WHERE id=#{id}
 	</update>
+	
+	<!-- 프로젝트에 의한 회원정보 수정 -->
+	<update id="update_project_member" parameterType="team5.model.Member">
+		UPDATE member SET 
+			tel=#{tel}, bank_brand=#{bankBrand}, bank_num=#{bankNum}, bank_user=#{bankUser}, edit_date=now()
+	</update>
 
 	<!-- 일련번호에 의한 회원정보 조회 -->
 	<select id="selectMember" parameterType="team5.model.Member"

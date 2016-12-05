@@ -3,6 +3,7 @@ package team5.model;
 public class BbsDocument {
 	// 기본
 	private int id;
+	private String writerName;
 	private String category;
 	private String subject;
 	private String content;
@@ -24,6 +25,12 @@ public class BbsDocument {
 	}
 	public void setId(int id) {
 		this.id = id;
+	}
+	public String getWriterName() {
+		return writerName;
+	}
+	public void setWriterName(String writerName) {
+		this.writerName = writerName;
 	}
 	public String getCategory() {
 		return category;
@@ -99,11 +106,12 @@ public class BbsDocument {
 	}
 	@Override
 	public String toString() {
-		return "BbsDocument [id=" + id + ", category=" + category + ", subject=" + subject + ", content=" + content
-				+ ", hit=" + hit + ", regDate=" + regDate + ", editDate=" + editDate + ", ipAddress=" + ipAddress
-				+ ", memberId=" + memberId + ", limitStart=" + limitStart + ", listCount=" + listCount + ", gallery="
-				+ gallery + ", imagePath=" + imagePath + "]";
+		return "BbsDocument [id=" + id + ", writerName=" + writerName + ", category=" + category + ", subject="
+				+ subject + ", content=" + content + ", hit=" + hit + ", regDate=" + regDate + ", editDate=" + editDate
+				+ ", ipAddress=" + ipAddress + ", memberId=" + memberId + ", limitStart=" + limitStart + ", listCount="
+				+ listCount + ", gallery=" + gallery + ", imagePath=" + imagePath + "]";
 	}
+	
 	
 	
 	
