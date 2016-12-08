@@ -34,7 +34,7 @@
 		});
 
 		/** present 동적뷰 생성 */
-		var preid = 0;// preid 세팅
+		var preid = 1;// preid 세팅
 		
 		// 동적뷰 생성
 		$("#present_new").click(function(e) {
@@ -44,14 +44,14 @@
 			
 			// 뷰 추가
 			$("#present_list").append(
-				"<div id='pre_money_"+preid+"' class='col-sm-4'>"
+				"<div id='pre_money_"+preid+"' class='col-sm-3'>"
 				+"<input type='text' name='pre_money_"+preid+"' />"
 				+"<p>원 이상 밀어주시는 분께</p>"
 				+"</div>"
 				
-				+"<div id='pre_info_"+preid+"' class='col-sm-8'>"
-				+"<textarea name='pre_info_"+preid+"'>"
-				+"</textarea>"
+				+"<div id='pre_info_"+preid+"' class='col-sm-9'>"
+				+"<input type='text' name='pre_info_"+preid+"' />"
+				+"<p>을 드립니다.</p>"
 				+"</div>"
 			);
 			
@@ -59,7 +59,7 @@
 			$("#precount").val(preid);
 			
 			// present 동적뷰 5개 제한
-			if (preid > 3) {
+			if (preid > 4) {
 				$("#present_new").hide();
 			} else {
 				$("#present_new").show();
@@ -82,7 +82,7 @@
 				preid = preid - 1;
 				
 				// present 동적뷰 5개 제한
-				if (preid > 3) {
+				if (preid > 4) {
 					$("#present_new").hide();
 				} else {
 					$("#present_new").show();
@@ -118,19 +118,19 @@
 				<p>프로젝트 제목</p>
 				<div>
 					<p>프로젝트에 멋진 제목을 붙여주세요. 감정에 호소하는 제목보다는 무엇을 만드는지 쉽게 알 수 있는 제목이
-						좋습니다. 공간이 부족한 곳에 쓰일 7자 이내의 짧은 제목도 정해주세요.</p>
+						좋습니다. 공간이 부족한 곳에 쓰일 8자 이내의 짧은 제목도 정해주세요.</p>
 					<div>
 						<h6>프로젝트 제목은 어디에 쓰이나요?</h6>
 						<img
 							src="${pageContext.request.contextPath }/assets/img/start_input_project_title_01.png" />
-						<label for="title">프로젝트 제목</label> <input type="text" name="title">
+						<label for="title">프로젝트 제목</label> <input type="text" name="title" maxlength="50">
 					</div>
 					<div>
 						<h6>프로젝트 짧은 제목은 어디에 쓰이나요?</h6>
 						<img
 							src="${pageContext.request.contextPath }/assets/img/start_input_project_title_02.png" />
 						<label for="title_s">프로젝트 짧은 제목</label> <input type="text"
-							name="title_s">
+							name="title_s" maxlength="16" />
 					</div>
 					<p class="close_slide"
 							style="display: block; width: 100%; padding: 10px; margin-top: 10px; border-radius: 10px; text-align: center; font-size: 1.2em; font-weight: bold; color: #fff; background: orange;">
@@ -145,7 +145,7 @@
 						잡아내는 이미지를 등록해 주시는 것이 좋습니다.</p>
 					<h6>대표 이미지는 어디에 쓰이나요?</h6>
 					<P>대표 이미지는 웹페이지에서 두루 쓰이는 썸네일의 이미지로 사용됩니다.</P>
-					<input type="file" name="title_image">
+					<input type="file" name="title_image" />
 					<p class="close_slide"
 							style="display: block; width: 100%; padding: 10px; margin-top: 10px; border-radius: 10px; text-align: center; font-size: 1.2em; font-weight: bold; color: #fff; background: orange;">
 							닫기</p>
@@ -156,7 +156,7 @@
 				<p>프로젝트 요약</p>
 				<div>
 					<p>후원자 분들에게 본 페이지를 간략하게 소개해 보세요.</p>
-					<textarea name="title_text"></textarea>
+					<input type="text" name="title_text" maxlength="255" />
 					<p class="close_slide"
 							style="display: block; width: 100%; padding: 10px; margin-top: 10px; border-radius: 10px; text-align: center; font-size: 1.2em; font-weight: bold; color: #fff; background: orange;">
 							닫기</p>
@@ -190,8 +190,8 @@
 				<p>프로젝트 페이지 주소</p>
 				<div>
 					<p>프로젝트 페이지로 들어올 수 있는 주소(url)을 정해주세요</p>
-					<label for="url">http://우리웹사이트 주소/</label> <input type="text"
-						name="url" />
+					<label for="url">http://우리웹사이트 주소</label> <input type="url"
+						name="url" maxlength="255" />
 					<p class="close_slide"
 							style="display: block; width: 100%; padding: 10px; margin-top: 10px; border-radius: 10px; text-align: center; font-size: 1.2em; font-weight: bold; color: #fff; background: orange;">
 							닫기</p>
@@ -216,7 +216,7 @@
 				<div>
 					<p>진행자님을 대표할 수 있는 이름을 써 주세요. 팀으로 진행하신다면 팀 이름을 쓰셔도 됩니다.</p>
 					<label for="producer_name">진행자 이름</label> <input type="text"
-						name="producer_name" value="${loginInfo.name }"/>
+						name="producer_name" maxlength="20" value="${loginInfo.name }"/>
 					<p class="close_slide"
 							style="display: block; width: 100%; padding: 10px; margin-top: 10px; border-radius: 10px; text-align: center; font-size: 1.2em; font-weight: bold; color: #fff; background: orange;">
 							닫기</p>
@@ -230,7 +230,7 @@
 					<p>프로젝트 페이지를 방문하는 후원자들이 '크리에이터 자세히 보기'를 클릭하면, 진행자님의 과거 텀블벅
 						프로젝트들과 함께 진행자 소개 문구가 표시됩니다. 2~3문장으로 간략하게 어떤 작업을 위주로 활동해 온 창작자인지
 						알려주세요</p>
-					<textarea name="producer_info"></textarea>
+					<textarea name="producer_info" class="ckeditor"></textarea>
 					<p class="close_slide"
 							style="display: block; width: 100%; padding: 10px; margin-top: 10px; border-radius: 10px; text-align: center; font-size: 1.2em; font-weight: bold; color: #fff; background: orange;">
 							닫기</p>
@@ -241,7 +241,7 @@
 				<div>
 					<p>진행자님은 주로 어느 지역에서 활동하시나요? 활동 지역을 구체적으로 기입해주시면 프로젝트의 신뢰를 높이는 데
 						도움이 됩니다.</p>
-					<input type="text" name="producer_area" />
+					<input type="text" name="producer_area" maxlength="100" />
 					<p class="close_slide"
 							style="display: block; width: 100%; padding: 10px; margin-top: 10px; border-radius: 10px; text-align: center; font-size: 1.2em; font-weight: bold; color: #fff; background: orange;">
 							닫기</p>
@@ -254,7 +254,7 @@
 				<p>목표 금액</p>
 				<div>
 					<p>이번 프로젝트를 통해 모으고자 하는 펀딩 목표 금액이 얼마인가요?</p>
-					<input type="number" name="project_money" />
+					<input type="number" name="project_money" maxlength="12" />
 					<div>
 						<h6>수수료를 제외하면 얼마를 받을 수 있나요?</h6>
 						<p>총 모금액에서 아래와 같이 공제됩니다.</p>
@@ -317,12 +317,13 @@
 					<div id="present_list"
 						style="width: 100%; padding:10px 0;background: #fff; border-radius: 10px;">
 
-						<div class='col-sm-4'>
-							<input type='text' name='pre_money_0'>
-							<p>원 이상 밀어주시는 분께</p>
+						<div class='col-sm-3'>
+							<input type='hidden' name='pre_money_1' maxlength="12" value="1000" readonly/>
+							<p>1000 원은 <br />최소 투자 금액입니다.</p>
 						</div>
-						<div class='col-sm-8'>
-							<textarea name='pre_info_0'></textarea>
+						<div class='col-sm-9'>
+							<input type="hidden" name='pre_info_1' maxlength="200" value="보상품 없음"/>
+							<p>최소 금액은 <br />제공할 보상품이 없습니다.</p>
 						</div>
 
 					</div>
@@ -369,7 +370,7 @@
 						<p>파손이나 불량품을 받은 후원자들에게는 정해진 기간 (예: 배송일로부터 30일) 내 새 제품 무료 교환을
 							약속하면 신뢰를 높이는 데 도움이 됩니다.</p>
 					</div>
-					<textarea name="legal"></textarea>
+					<textarea name="legal" class="ckeditor"></textarea>
 					<p class="close_slide"
 							style="display: block; width: 100%; padding: 10px; margin-top: 10px; border-radius: 10px; text-align: center; font-size: 1.2em; font-weight: bold; color: #fff; background: orange;">
 							닫기</p>
@@ -383,7 +384,8 @@
 				<div>
 					<p>프로젝트를 소개하는 영상을 만들면 내용을 더 효과적으로 알릴 수 있습니다. 2~3분 이내의 짧은 영상이 가장
 						반응이 좋답니다. 배경음악을 쓰신다면 저작권 문제에 유념해주세요.</p>
-					<input type="text" name="video" />
+					<img src="${pageContext.request.contextPath }/assets/img/youtube_video.jpg" />
+					<input type="url" name="video" maxlength="255" />
 					<p class="close_slide"
 							style="display: block; width: 100%; padding: 10px; margin-top: 10px; border-radius: 10px; text-align: center; font-size: 1.2em; font-weight: bold; color: #fff; background: orange;">
 							닫기</p>
@@ -394,7 +396,7 @@
 				<div>
 					<p>스토리는 프로젝트가 후원자를 만나는 가장 중요한 공간입니다. 창작자 소개, 창작 과정과 계기, 펀딩 목적
 						등의 내용을 편하게 작성해주시면 됩니다. 적절한 이미지 활용도 잊지 마세요.</p>
-					<textarea name="story"></textarea>
+					<textarea name="story" class="ckeditor"></textarea>
 					<p class="close_slide"
 							style="display: block; width: 100%; padding: 10px; margin-top: 10px; border-radius: 10px; text-align: center; font-size: 1.2em; font-weight: bold; color: #fff; background: orange;">
 							닫기</p>
@@ -408,7 +410,7 @@
 				<div>
 					<p>진행자님이 연락받으실 수 있는 이메일을 입력해 주세요. 프로젝트 관련 중요 안내사항이 모두 이메일로
 						전달되므로 평소 자주 확인하는 이메일을 입력하시는 것이 좋습니다.</p>
-					<input type="email" name="email" value="${loginInfo.userId }"/>
+					<input type="email" name="email" maxlength="150" value="${loginInfo.userId }"/>
 					<p class="close_slide"
 							style="display: block; width: 100%; padding: 10px; margin-top: 10px; border-radius: 10px; text-align: center; font-size: 1.2em; font-weight: bold; color: #fff; background: orange;">
 							닫기</p>
@@ -419,7 +421,7 @@
 				<div>
 					<p>진행자님이 연락 받으실 수 있는 휴대폰 연락처를 입력해 주세요. 프로젝트 진행과 관련된 긴급한 사항 전달에만
 						사용됩니다.</p>
-					<input type="tel" name="tel" value="${loginInfo.tel }" />
+					<input type="tel" name="tel" maxlength="13" value="${loginInfo.tel }" />
 					<p class="close_slide"
 							style="display: block; width: 100%; padding: 10px; margin-top: 10px; border-radius: 10px; text-align: center; font-size: 1.2em; font-weight: bold; color: #fff; background: orange;">
 							닫기</p>
@@ -430,19 +432,19 @@
 				<div>
 					<div>
 						<h6>거래은행</h6>
-						<input type="text" name="bank_brand" value="${loginInfo.bankBrand }"/>
+						<input type="text" name="bank_brand" maxlength="50" value="${loginInfo.bankBrand }"/>
 						<p>후원금을 수령할 계좌가 어느 은행 계좌인가요? 신한은행 계좌 등록시 최대 200원, 타 은행 등록시 최대
 							1000원의 송금수수료가 발생합니다.</p>
 					</div>
 
 					<div>
 						<h6>계좌번호</h6>
-						<input type="text" name="bank_num" value="${loginInfo.bankNum }"/>
+						<input type="text" name="bank_num" maxlength="20" value="${loginInfo.bankNum }"/>
 						<p>숫자로만 입력하세요.</p>
 					</div>
 					<div>
 						<h6>예금주명</h6>
-						<input type="text" name="bank_user" value="${loginInfo.bankUser }"/>
+						<input type="text" name="bank_user" maxlength="50" value="${loginInfo.bankUser }"/>
 						<p>계좌에 등록된 예금주명과 일치해야 합니다.</p>
 					</div>
 					<!-- <div>
@@ -467,6 +469,7 @@
 			<!-- submit -->
 			<p>프로젝트 등록은 회원들과의 계약과 같은 의미이기 때문에 한번 등록되면 수정이 불가능합니다.</p>
 			<p>단, 연락처, 입금계좌와 같은 프로젝트의 의도와 관계가 없고 진행 중 변경될 수 있는 내용은 진행자의 회원정보 수정에서 변경이 가능합니다.</p>
+			<p>등록된 프로젝트는 운영진의 검토 후 공개되며, 지정된 모집시작날짜에 자동으로 모집이 시작됩니다.</p>
 			<button type="submit">검토 요청하기</button>
 			<!-- <button type="reset">다시 입력하기</button> -->
 			<!-- //submit -->

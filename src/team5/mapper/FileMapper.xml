@@ -12,12 +12,47 @@
 		<result property="fileName" column="file_name" />
 		<result property="contentType" column="content_type" />
 		<result property="fileSize" column="file_size" />
-		<result property="redDate" column="reg_date" />
-		<result property="memberId" column="member_id" />
+		<result property="regDate" column="reg_date" />
+
 		<result property="bbsDocumentId" column="bbs_document_id" />
-		<result property="projectId" column="project_id" />
+
 	</resultMap>
 
+	<!-- 게시글에 속한 첨부파일의 정보를 저장한다. -->
+	<insert id="insertFile" parameterType="team5.model.File"
+		useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO file(
+			origin_name, file_dir, file_name, content_type,
+			file_size, reg_date, bbs_document_id 
+		) VALUES (
+			#{originName}, #{fileDir}, #{fileName}, #{contentType},
+			#{fileSize}, now(), #{bbsDocumentId}
+		)
+	</insert>
 	
+	<!-- 하나의 게시물에 속한 파일목록을 조회한다. -->
+	<select id="selectFileList" parameterType="team5.model.File" 
+		resultMap="file">
+		SELECT id, origin_name, file_dir, file_name, content_type,
+			   file_size, reg_date, bbs_document_id
+		FROM   file
+		WHERE  bbs_document_id=#{bbsDocumentId}
+	</select>
+	
+	<!-- 게시글에 속한 파일 전체 삭제 하기 -->
+	<delete id="deleteFileAll" parameterType="team5.model.File">
+		DELETE FROM file WHERE bbs_document_id=#{bbsDocumentId}
+	</delete>
+	
+	<!-- 하나의 파일을 조회한다. -->
+	<select id="selectFile" parameterType="team5.model.File" 
+		resultMap="file">
+		SELECT file_dir, file_name FROM file WHERE id=#{id}
+	</select>
+	
+	<!-- 하나의 파일을 삭제한다. -->
+	<delete id="deleteFile" parameterType="team5.model.File">
+		DELETE FROM file WHERE id=#{id}
+	</delete>
 	
 </mapper>

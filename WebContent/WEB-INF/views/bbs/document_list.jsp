@@ -16,63 +16,81 @@
 <body>
 	<%@ include file="/WEB-INF/views/inc/topnav.jsp"%>
 
-	<!-- mypage_header -->
-	<div class="mypage_header">
-		<h3>커뮤니티</h3>
-		<p>1번 게시판</p>
-	</div>
-	<!-- //mypage_header -->
+	 <div class="container">
+<div class="page-header"  >
+      <h1 ><strong>${bbsName}</strong>
+       - <small>글 목록</small>
+ </h1>
 
-	<!-- document_list -->
-	<div class="container">
-		<div class="table-responsive">
-			<table class="table table-hover">
-				<thead>
-					<tr>
-						<td class="text-center" style="width: 100px">번호</td>
-						<td class="text-center">제목</td>
-						<td class="text-center visible-lg visible-md" style="width: 120px">작성자</td>
-						<td class="text-center visible-lg visible-md" style="width: 100px">조회수</td>
-						<td class="text-center visible-lg visible-md" style="width: 120px">작성일</td>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td class="text-center">3</td>
-						<td><a href="${pageContext.request.contextPath }/bbs/document_read.do">제목</a></td>
-						<td class="text-center">글쓴이</td>
-						<td class="text-center">55</td>
-						<td class="text-center">2016-11-25 20:00:00</td>
-					</tr>
-					<tr>
-						<td class="text-center">2</td>
-						<td><a href="${pageContext.request.contextPath }/bbs/document_read.do">제목</a></td>
-						<td class="text-center">글쓴이</td>
-						<td class="text-center">55</td>
-						<td class="text-center">2016-11-25 20:00:00</td>
-					</tr>
-					<tr>
-						<td class="text-center">1</td>
-						<td><a href="${pageContext.request.contextPath }/bbs/document_read.do">제목</a></td>
-						<td class="text-center">글쓴이</td>
-						<td class="text-center">55</td>
-						<td class="text-center">2016-11-25 20:00:00</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
+    </div>
+               <!-- 검색폼 -->
+	<div class="pull-right" style="margin-bottom: 10px;">
+      <form method="get"
+         action="${pageContext.request.contextPath}/bbs/document_list.do"
+         style="width: 200px">
+         <input type="hidden" name="category" value="${category}" />
+         <div class="input-group">
+            <input type="text" name="keyword" class="form-control"
+               placeholder="제목, 내용 검색" value="${keyword}" /> <span
+               class="input-group-btn">
+               <button class="btn btn-success" type="submit">
+                  <i class="glyphicon glyphicon-search"></i>
+               </button>
+            </span>
+         </div>
+      </form>
+   </div>
+</div>
 
-		<!-- 버튼들  -->
-		<div class="clearfix">
-			<div class="pull-right">
-				<a href="${pageContext.request.contextPath }/content/comunity.do" class="btn btn-success">커뮤니티 목록</a><a
-					href="${pageContext.request.contextPath }/bbs/document_write.do" class="btn btn-primary">글쓰기</a>
-			</div>
-		</div>
-		<!-- //버튼틀 -->
+ <div class="container">
+      <!-- 글 목록 시작 -->
+      <div class="table-responsive">
+         <table class="table table-hover">
+    
+            <thead>
+               <tr class="alert alert-info" role="alert">
+                  <th class="text-center" style="width: 100px;">번호</th>
+                  <th class="text-center">제목</th>
+                  <th class="text-center" style="width: 120px;">작성자</th>
+                  <th class="text-center" style="width: 100px;">조회수</th>
+                  <th class="text-center" style="width: 120px;">작성일</th>
+               </tr>
+            </thead>
+          
+            <tbody>
+               <c:choose>
+                  <c:when test="${fn:length(documentList) > 0 }">
+                     <c:forEach var="document" items="${documentList}">
+                        <tr>
+                           <td class="text-center"  >${document.id}</td>
+                           <td><c:url var="readUrl" value="/bbs/document_read.do">
+                                 <c:param name="category" value="${document.category}" />
+                                 <c:param name="document_id" value="${document.id}" />
+                              </c:url> <a href="${readUrl}">${document.subject}
+                            
+                              </a></td>
+                           <td class="text-center">${document.writerName}</td>
+                           <td class="text-center">${document.hit}</td>
+                           <td class="text-center">${document.regDate}</td>
+                        </tr>
+                     </c:forEach>
+                  </c:when>
 
-	</div>
-	<!-- //document_list -->
+                  <c:otherwise>
+                     <tr>
+                        <td colspan="5" class="text-center" style="line-height: 100px;">조회된 글이 없습니다.</td>
+                     </tr>
+                  </c:otherwise>
+               </c:choose>
+            </tbody>
+         </table>
+      </div>
+      <!-- 글 목록 끝 -->
+
+      <!-- 목록페이지 하단부의 쓰기버튼 + 검색폼 + 페이지 번호 공통 영역 include -->
+      <%@ include file="/WEB-INF/views/inc/bbs_list_bottom.jsp"%>
+   </div>
+
 
 	<%@ include file="/WEB-INF/views/inc/footer.jsp"%>
 </body>

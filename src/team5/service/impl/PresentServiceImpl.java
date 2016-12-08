@@ -1,5 +1,7 @@
 package team5.service.impl;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.logging.log4j.Logger;
 
@@ -38,6 +40,26 @@ public class PresentServiceImpl implements PresentService {
 			sqlSession.commit();
 		}
 		
+	}
+
+	@Override
+	public List<Present> selectPresentList(Present present) throws Exception {
+		List<Present> result = null;
+		
+		try {
+			result = sqlSession.selectList("PresentMapper.select_present_list", present);
+			if (result == null) {
+				throw new NullPointerException();
+			}
+		} catch (NullPointerException e) {
+			sqlSession.close();
+			throw new Exception("조회된 선물 목록이 없습니다.");
+		} catch (Exception e) {
+			sqlSession.close();
+			logger.error(e.getLocalizedMessage());
+			throw new Exception("선물 조회에 실패");
+		}
+		return result;
 	}
 	
 	

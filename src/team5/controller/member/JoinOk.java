@@ -58,7 +58,8 @@ public class JoinOk extends BaseController {
 		// 회원가입 처리를 위한 Service객체
 		// --> import study.jsp.mysite.service.impl.MemberServiceImpl;
 		memberService = new MemberServiceImpl(sqlSession, logger);
-
+		
+	
 		/** (3) 로그인 여부 검사 */
 		// 로그인 중이라면 이 페이지를 동작시켜서는 안된다.
 		if (web.getSession("loginInfo") != null) {
@@ -67,7 +68,7 @@ public class JoinOk extends BaseController {
 			web.redirect(web.getRootPath() + "/index.do", "이미 로그인 하셨습니다.");
 			return null;
 		}
-
+	       web.getString("inEmail");
 		/** (4) 파일이 포함된 POST 파라미터 받기 */
 		// <form>태그 안에 <input type="file">요소가 포함되어 있고,
 		// <form>태그에 enctype="multipart/form-data"가 정의되어 있는 경우
@@ -113,7 +114,7 @@ public class JoinOk extends BaseController {
 		
 
 		/** (5) 입력값의 유효성 검사 */
-		// 아이디 검사
+	/**	// 아이디 검사
 		if (!regex.isValue(userId)) {
 			sqlSession.close();
 			web.redirect(null, "아이디를 입력하세요.");
@@ -125,7 +126,7 @@ public class JoinOk extends BaseController {
 			web.redirect(null, "이메일의 형식이 잘못되었습니다.");
 			return null;
 		}
-
+*/
 		// 비밀번호 검사
 		if (!regex.isValue(userPw)) {
 			sqlSession.close();
@@ -184,7 +185,7 @@ public class JoinOk extends BaseController {
 			web.redirect(null, "연락처의 형식이 잘못되었습니다.");
 			return null;
 		}
-
+	
 		// 생년월일 검사
 		if (!regex.isValue(birthdate)) {
 			sqlSession.close();
@@ -204,7 +205,7 @@ public class JoinOk extends BaseController {
 			web.redirect(null, "성별이 잘못되었습니다.");
 			return null;
 		}
-		
+	/**	
 		// 은행
 				if (!regex.isValue(bankBrand)) {
 					sqlSession.close();
@@ -223,6 +224,7 @@ public class JoinOk extends BaseController {
 					web.redirect(null, "예금주명을 입력하세요.");
 					return null;
 				}
+				*/
 		/** (6) 업로드 된 파일 정보 추출 */
 		List<FileInfo> fileList = upload.getFileList();
 		// 업로드 된 프로필 사진 경로가 저장될 변수
@@ -265,6 +267,7 @@ public class JoinOk extends BaseController {
 		}
 
 		/** (9) 가입이 완료되었으므로 메인페이지로 이동 */
+		web.removeSession("inEmail");
 		sqlSession.close();
 		web.redirect(web.getRootPath() + "/main/index.do", "회원가입이 완료되었습니다. 로그인 해 주세요.");
 

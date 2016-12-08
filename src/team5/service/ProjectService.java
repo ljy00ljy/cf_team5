@@ -35,4 +35,24 @@ public interface ProjectService {
 	 * @throws Exception
 	 */
 	public void updateProjectMember(Member member) throws Exception;
+	
+	/**
+	 * 프로젝트 한개 조회
+	 * @param project
+	 * @throws Exception
+	 */
+	public Project selectProject(Project project) throws Exception;
+	
+	/**
+	 * 프로젝트 투자금액 업데이트
+	 * @param project
+	 * @throws Exception
+	 */
+	public void updateProjectMoney(Project project) throws Exception;
+	
+	/** 투자한 프로젝트 조회
+	 * @param project
+	 * @throws Exception
+	 */
+	public List<Project> selectProjectPledgesThumbList(Project project) throws Exception; 
 }

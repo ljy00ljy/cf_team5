@@ -193,7 +193,7 @@ public class MyProfileOk extends BaseController {
 			web.redirect(null, "성별이 잘못되었습니다.");
 			return null;
 		}
-		
+		/**
 		// 은행
 		if (!regex.isValue(bankBrand)) {
 			sqlSession.close();
@@ -212,7 +212,7 @@ public class MyProfileOk extends BaseController {
 			web.redirect(null, "예금주명을 입력하세요.");
 			return null;
 		}
-		
+		*/
 		/** (6) 프로필 사진의 삭제가 요청된 경우 */
 		if (regex.isValue(imgDel) && imgDel.equals("Y")) {
 			// 세션에 보관되어 있는 이미지 경로를 취득

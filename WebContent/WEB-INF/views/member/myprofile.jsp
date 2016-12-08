@@ -96,7 +96,7 @@
 			</div>
 
 			<div class="form-group">
-				<label for="gender1" class="col-md-2">성별</label>
+				<label for="gender1" class="col-md-2">성별*</label>
 				<div class="col-md-10">
 					<label class="radio-inline"> <input type="radio"
 						name="gender" id="gender1" value="M"
@@ -109,7 +109,7 @@
 			</div>
 
 			<div class="form-group">
-				<label for="birthdate" class="col-md-2">생년월일</label>
+				<label for="birthdate" class="col-md-2">생년월일*</label>
 				<div class="col-md-10">
 					<input type="date" name="birthdate" id="birthdate"
 						class="form-control" value="${loginInfo.birthdate}" />
@@ -117,7 +117,7 @@
 			</div>
 
 			<div class="form-group">
-				<label for="postcode" class="col-md-2">우편번호</label>
+				<label for="postcode" class="col-md-2">우편번호*</label>
 				<div class="col-md-10 clearfix">
 					<input type="text" name="postcode" id="postcode"
 						class="form-control pull-left"
@@ -130,7 +130,7 @@
 			</div>
 
 			<div class="form-group">
-				<label for="addr1" class="col-md-2">주소</label>
+				<label for="addr1" class="col-md-2">주소*</label>
 				<div class="col-md-10">
 					<input type="text" name="addr1" id="addr1" class="form-control"
 						value="${loginInfo.addr1 }" />
@@ -138,7 +138,7 @@
 			</div>
 
 			<div class="form-group">
-				<label for="addr2" class="col-md-2">상세주소</label>
+				<label for="addr2" class="col-md-2">상세주소*</label>
 				<div class="col-md-10">
 					<input type="text" name="addr2" id="addr2" class="form-control"
 						value="${loginInfo.addr2 }" />

@@ -62,26 +62,11 @@ public class StartProjectOk extends BaseController {
 			web.redirect(web.getRootPath() + "/member/login.do", "로그인 후 이용 가능합니다.");
 			return null;
 		}
-		// 프로젝트 등록 중이라면 대기
-		/*int pcount = 0;
-		pcount = (int) web.getSession("loginInfo.id");
-		logger.debug("pcount = "+pcount);
-		try {
-			projectService.countInsertProjectDelay(pcount);
-			logger.debug("try 실행");
-		} catch (Exception e) {
-			logger.error(e.getLocalizedMessage());
-			new Exception(e.getMessage());
-			return null;
-		}
-		if (pcount != 0) {
-			web.redirect(web.getRootPath() + "/main/index.do", "이미 등록된 프로젝트가 승인 대기중입니다.");
-			return null;
-		}*/
+		
+		/** 프로젝트 등록 중이라면 대기 */
+		
 
-		/**
-		 * 파일이 포함된 POST 파라미터 받기
-		 */
+		/** 파일이 포함된 POST 파라미터 받기 */
 		try {
 			upload.multipartRequest(request);
 		} catch (Exception e) {
@@ -90,9 +75,7 @@ public class StartProjectOk extends BaseController {
 			return null;
 		}
 
-		/**
-		 * 받기
-		 */
+		/** 받기 */
 		Map<String, String> paramMap = upload.getParamMap();
 		// project 받기
 		// 프로젝트 개요
@@ -160,31 +143,7 @@ public class StartProjectOk extends BaseController {
 		logger.debug("bankUser = " + bankUser);
 		logger.debug(" memberId = " + memberId);
 
-		/**
-		 * 업로드 된 file 정보 추출
-		 */
-		List<FileInfo> fileList = upload.getFileList();
-		// 업로드된 프로필 사진 경로가 저장될 변수
-		String titleImage = null; // 프로젝트 대표 이미지
-		String producerImage = null; // 진행자 프로필 이미지
-		String producerImageThumb = null; // 진행자 프로필 썸네일 이미지
-		// 업로드된 파일이 존재할 경우만 변수값을 할당한다.
-		if (fileList.size() > 0) {
-			FileInfo info1 = fileList.get(0);
-			titleImage = info1.getFileDir() + "/" + info1.getFileName();
-			FileInfo info2 = fileList.get(1);
-			producerImage = info2.getFileDir() + "/" + info2.getFileName();
-			if (producerImage != null) {
-				try {
-					producerImageThumb = upload.createThumbnail(producerImage, 40, 40, true);
-				} catch (Exception e) {
-					return null;
-				}
-			}
-		}
-		// image logger
-		logger.debug("titleImage = " + titleImage);
-		logger.debug("producerImage = " + producerImage);
+		
 
 		/**
 		 * 입력 받은 파라미터에 대한 유효성 검사
@@ -211,11 +170,7 @@ public class StartProjectOk extends BaseController {
 			web.redirect(null, "소제목은 한글 8자 이하, 영문+숫자 16자 이하 입력하세요");
 			return null;
 		}
-		if (!regex.isValue(titleImage)) {
-			sqlSession.close();
-			web.redirect(null, "프로젝트 대표 이미지를 입력하세요");
-			return null;
-		}
+		
 		if (!regex.isValue(titleText)) {
 			sqlSession.close();
 			web.redirect(null, "프로젝트 개요를 입력하세요");
@@ -232,11 +187,7 @@ public class StartProjectOk extends BaseController {
 			return null;
 		}
 		// 진행자 정보
-		if (!regex.isValue(producerImage)) {
-			sqlSession.close();
-			web.redirect(null, "제작자 이미지를 입력하세요");
-			return null;
-		}
+		
 		if (!regex.isValue(producerName)) {
 			sqlSession.close();
 			web.redirect(null, "제작자명를 입력하세요");
@@ -288,12 +239,13 @@ public class StartProjectOk extends BaseController {
 			web.redirect(null, "모집종료날짜을 입력하세요");
 			return null;
 		}
-		
+
 		// present 카운트 가져오기
 		String precount = paramMap.get("precount");
 		int count = Integer.parseInt(precount) + 1;
+		logger.debug("count + 1 = "+count);
 		// present 받기
-		for (int i=0; i<count; i++) {
+		for (int i=1; i<count; i++) {
 			String cmoney = paramMap.get("pre_money_"+i);
 			String cinfo = paramMap.get("pre_info_"+i);
 			logger.debug(" money = " + cmoney);
@@ -404,6 +356,41 @@ public class StartProjectOk extends BaseController {
 			web.redirect(null, "예금주는 한글 25자, 영문+숫자 50자 이내로 입력하세요");
 			return null;
 		}
+		
+		/** 업로드 된 file 정보 추출 */
+		List<FileInfo> fileList = upload.getFileList();
+		// 업로드된 프로필 사진 경로가 저장될 변수
+		String titleImage = null; // 프로젝트 대표 이미지
+		String producerImage = null; // 진행자 프로필 이미지
+		String producerImageThumb = null; // 진행자 프로필 썸네일 이미지
+		// 업로드된 파일이 존재할 경우만 변수값을 할당한다.
+		if (fileList.size() > 0) {
+			FileInfo info1 = fileList.get(0);
+			titleImage = info1.getFileDir() + "/" + info1.getFileName();
+			FileInfo info2 = fileList.get(1);
+			producerImage = info2.getFileDir() + "/" + info2.getFileName();
+			if (producerImage != null) {
+				try {
+					producerImageThumb = upload.createThumbnail(producerImage, 40, 40, true);
+				} catch (Exception e) {
+					return null;
+				}
+			}
+		}
+		if (!regex.isValue(titleImage)) {
+			sqlSession.close();
+			web.redirect(null, "프로젝트 대표 이미지를 입력하세요");
+			return null;
+		}
+		if (!regex.isValue(producerImage)) {
+			sqlSession.close();
+			web.redirect(null, "제작자 이미지를 입력하세요");
+			return null;
+		}
+		// image logger
+		logger.debug("titleImage = " + titleImage);
+		logger.debug("producerImage = " + producerImage);
+		
 
 		// present logger
 		// logger.debug("===== present log =====");
@@ -430,7 +417,13 @@ public class StartProjectOk extends BaseController {
 		//
 		project.setLegal(legal);
 		//
-		project.setVideo(video);
+		// video 문자열 추출 후 재조립
+		String reVideo = "";
+		if (video != "") {
+			reVideo = video.substring(video.lastIndexOf("/"), video.length());
+		}
+		
+		project.setVideo(reVideo);
 		project.setStory(story);
 		//
 		project.setEmail(email);
@@ -462,7 +455,7 @@ public class StartProjectOk extends BaseController {
 			int nowProjectId = nowProject.getId();
 			logger.debug("nowProjectId = "+nowProjectId);
 			// present 저장
-			for (int i = 0; i < count; i++) {
+			for (int i = 1; i < count; i++) {
 				// present 받기
 				String sMoney = paramMap.get("pre_money_"+i);
 				String sInfo = paramMap.get("pre_info_"+i);
@@ -483,11 +476,13 @@ public class StartProjectOk extends BaseController {
 			sqlSession.close(); 
 			web.redirect(null, e.getLocalizedMessage());
 			return null; 
+		} finally {
+			sqlSession.close();
 		}
 
-		
+		request.setAttribute("memberId", memberId);
 		// session 변경
-
+				
 		return "project/start_project_ok";
 	}
 }

@@ -113,4 +113,60 @@ public class ProjectServiceImpl implements ProjectService {
 		
 	}
 
+	@Override
+	public Project selectProject(Project project) throws Exception {
+		Project result = null;
+		try {
+			result = sqlSession.selectOne("ProjectMapper.select_project", project);
+			if (result == null) {
+				throw new NullPointerException();
+			}
+		} catch (NullPointerException e) {
+			sqlSession.close();
+			throw new Exception("조회된 한개의 프로젝트 정보가 없습니다.");
+		} catch (Exception e) {
+			sqlSession.close();
+			logger.error(e.getLocalizedMessage());
+			throw new Exception("프로젝트 한개 조회에 실패.");
+		}
+		return result;
+	}
+
+	@Override
+	public void updateProjectMoney(Project project) throws Exception {
+		try {
+			int result = sqlSession.update("ProjectMapper.update_project_money", project);
+			if(result == 0) {
+				throw new NullPointerException();
+			}
+		} catch (NullPointerException e) {
+			sqlSession.rollback();
+			throw new NullPointerException("변경된 프로젝트 투자가 없습니다.");
+		} catch (Exception e) {
+			sqlSession.rollback();
+			logger.error(e.getLocalizedMessage());
+			throw new Exception("프로젝트 투자에 실패했습니다.");
+		} finally {
+			sqlSession.commit();
+		}
+		
+	}
+
+	@Override
+	public List<Project> selectProjectPledgesThumbList(Project project) throws Exception {
+		List<Project> result = null;
+		try {
+			result = sqlSession.selectList("ProjectMapper.select_project_pledges_thumb_list", project);
+			if(result == null) {
+				throw new NullPointerException();
+			}
+		} catch (NullPointerException e) {
+			throw new Exception("조회된 프로젝트 목록이 없습니다.");
+		} catch (Exception e) {
+			logger.error(e.getLocalizedMessage());
+			throw new Exception("프로젝트 목록 조회에 실패했습니다.");
+		}
+		return result;
+	}
+
 }

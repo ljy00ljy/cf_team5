@@ -24,11 +24,12 @@
 			
 			<form method="post" action="${pageContext.request.contextPath }/member/find_user_re_ok.do">
 				<div class="form-group">
-					<label for="user_pw_mail">인증번호</label> <input type="email" name="user_pw_mail"
+					<label for="user_pw_mail">인증번호</label> <input type="text" name="check_item"
 						placeholder="인증번호 입력" />
 				</div>
 				<div class="forn-group">
-				<button type="submit">메일 발송</button>
+				<button type="submit">확인
+				발송</button>
 				</div>
 			</form>
 		</div>

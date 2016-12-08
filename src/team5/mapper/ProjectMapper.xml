@@ -73,7 +73,7 @@
 		WHERE member_id=#{id} AND project_status="2"
 	</select>
 	
-	<!-- project.do 조회 -->
+	<!-- 전체 project 썸네일 조회 -->
 	<select id="select_project_thumb_list" parameterType="team5.model.Project" resultMap="project_mapper">
 		SELECT 
 			id, title, title_image, title_text, category, 
@@ -103,15 +103,44 @@
 			
 	</select>
 	
-	<!-- 전체 게시물 수 조회 -->
-	<!-- <select id="selectProjectCount" parameterType="team5.model.Project" resultType="int">
-		SELECT COUNT(id) 
-		FROM project
-		<where>
-			
-		</where> 
-	</select> -->
+	<!-- project 한개 조회 -->
+	<select id="select_project" parameterType="team5.model.Project" resultMap="project_mapper">
+		SELECT 
+			id, title, title_image, title_text, category, url, 
+			producer_image, producer_name, producer_info, 
+			project_money, now_money, now_pledge, 
+			start_date, end_date, 
+			legal, video, story, 
+			email, member_id
+		FROM PROJECT
+		WHERE id=#{id}
+	</select>
 	
+	<!-- 후원 등록 시 project update -->
+	<update id="update_project_money" parameterType="team5.model.Project">
+		UPDATE project SET
+			now_money=now_money+#{nowMoney}, now_pledge=now_pledge+1
+		WHERE 
+			id=#{id}
+	</update>
 	
-	
+	<!-- 후원한 프로젝트 조회 -->
+	<select id="select_project_pledges_thumb_list" parameterType="team5.model.Project" resultMap="project_mapper">
+		SELECT 
+			id, title, title_image, title_text, category, 
+			producer_image_thumb, project_money, 
+			now_money, now_pledge, 
+			start_date, end_date, 
+			project_status
+		FROM project 
+		WHERE 
+			id=any(
+				SELECT project_id
+				FROM pledges
+				WHERE member_id=#{memberId}
+			)
+		ORDER BY 
+			project_status 
+		DESC 
+	</select>
 </mapper>

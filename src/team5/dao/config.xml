@@ -21,13 +21,13 @@
 
 	<!-- 실행할 SQL문을 정의한 Mapper XML의 경로를 지정한다. -->
 	<mappers>
-		<mapper resource="team5/mapper/BbsCommentMapper.xml" />
-		<mapper resource="team5/mapper/BbsDocumentMapper.xml" />
-		<mapper resource="team5/mapper/FileMapper.xml" />
 		<mapper resource="team5/mapper/MemberMapper.xml" />
-		<mapper resource="team5/mapper/PledgesMapper.xml" />
-		<mapper resource="team5/mapper/PresentMapper.xml" />
+		<mapper resource="team5/mapper/FileMapper.xml" />
+		<mapper resource="team5/mapper/BbsDocumentMapper.xml" />
+		<mapper resource="team5/mapper/BbsCommentMapper.xml" />
 		<mapper resource="team5/mapper/ProjectMapper.xml" />
-		
+		<mapper resource="team5/mapper/PresentMapper.xml" />
+		<mapper resource="team5/mapper/PledgesMapper.xml" />
+
 	</mappers>
 </configuration>

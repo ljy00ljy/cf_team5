@@ -11,15 +11,16 @@
 <%@ include file="/WEB-INF/views/inc/head.jsp"%>
 
 
-
 </head>
 <body>
 	<%@ include file="/WEB-INF/views/inc/topnav.jsp"%>
-
+	<!-- 상태유지 -->
+	
+	
 	<!-- mypage_header -->
 	<div class="mypage_header">
-		<h3>고양이 첫번째 키우기 키우기 키우기</h3>
-		<p>밥먹이기밥먹이기밥먹이기밥먹이기</p>
+		<h3>${readProject.title }</h3>
+		<p>${readProject.titleText }</p>
 	</div>
 	<!-- //mypage_header -->
 
@@ -31,10 +32,17 @@
 		<div class="info col-sm-8">
 			<!-- info_title -->
 			<div class="info_title">
-				<img src="${pageContext.request.contextPath }/assets/img/cat01.gif" alt="" />
-				<p>
-					URL : <a href="#">http://naver.com</a>
-				</p>
+				<c:choose>
+					<c:when test="${readProject.video != null }">
+						<div id="youtube_box">
+							<embed width="100%" height="315" src="https://www.youtube.com/embed${readProject.video }"></embed>
+						</div>
+					</c:when>
+					<c:otherwise>
+						<img src="${pageContext.request.contextPath }/main/download.do?file=${readProject.titleImage }" alt="" />
+					</c:otherwise>
+				</c:choose>
+				<p><a href="${readProject.url }">${readProject.url }</a></p>
 			</div>
 			<!-- //info_title -->
 
@@ -42,26 +50,26 @@
 
 			<!-- info_content -->
 			<div class="info_content">
-				<h6>출판사 “ FEELM ”</h6>
-				<p>"우리의 이야기는 영화다." 라는 슬로건으로 영화같은 이야기를 다루고 있습니다. 출판을 바탕으로 한 모든
-					예술분야를 지원하고 창조해나가는데 그 의미를 두고 있습니다. 세상의 어두운 부분을 밝게 비추는 따듯한 존재이고 싶습니다.</p>
-				<h6>출판사 “ FEELM ”</h6>
-				<p>"우리의 이야기는 영화다." 라는 슬로건으로 영화같은 이야기를 다루고 있습니다. 출판을 바탕으로 한 모든
-					예술분야를 지원하고 창조해나가는데 그 의미를 두고 있습니다. 세상의 어두운 부분을 밝게 비추는 따듯한 존재이고 싶습니다.</p>
-				<h6>출판사 “ FEELM ”</h6>
-				<p>"우리의 이야기는 영화다." 라는 슬로건으로 영화같은 이야기를 다루고 있습니다. 출판을 바탕으로 한 모든
-					예술분야를 지원하고 창조해나가는데 그 의미를 두고 있습니다. 세상의 어두운 부분을 밝게 비추는 따듯한 존재이고 싶습니다.</p>
-
+				${readProject.story }
 			</div>
 			<!-- //info_content -->
 
 			<!-- info_producer -->
-			<div class="info_producer"></div>
+			<div class="info_producer">
+				<img src="${pageContext.request.contextPath }/main/download.do?file=${readProject.producerImage }" />
+				${readProject.producerName }
+				${readProject.producerInfo }
+				${readProject.producerArea }
+				
+				${readProject.email }
+			</div>
 			<!-- //info_producer -->
 
 
 			<!-- info_legal -->
-			<div class="info_legal"></div>
+			<div class="info_legal">
+				${readProject.legal }
+			</div>
 			<!-- //info_legal -->
 
 
@@ -70,73 +78,34 @@
 
 		<!-- info_side -->
 		<div class="info_side col-sm-4">
-			<p>목표금액 : 5,500,000원</p>
+			<p>목표금액 : ${readProject.projectMoney }</p>
 			<p>
-				모인금액 : 10,000,000원 <span>230%</span>
+				모인금액 : ${readProject.nowMoney }원 <span> %</span>
 			</p>
 			<p>남은기간 : 500 일</p>
-			<p>후원자 : 500 명</p>
-			<a href="${pageContext.request.contextPath }/pledges/rewards.do">후원하기</a>
+			<p>후원자 : ${readProject.nowPledge } 명</p>
+			<a href="${pageContext.request.contextPath }/pledges/rewards.do?project_id=${readProject.id }&title=${readProject.title }">후원하기</a>
+			
+			
+			<!-- present item -->
+		
+			<c:choose>
+				<c:when test="${fn:length(readPresent) > 0 }">
+					<c:forEach var="readPresent" items="${readPresent }">
+						<div id="present_item">
+							<a href="${pageContext.request.contextPath }/pledges/rewards.do?project_id=${readProject.id }&title=${readProject.title }">
+								<h6>${readPresent.money } 원 이상</h6>
+								<p>${readPresent.info }</p>
+							</a>
+						</div>
+					</c:forEach>
+				</c:when>
+				<c:otherwise>
+				
+				</c:otherwise>
+			</c:choose>
+			<!-- //present item -->
 
-			<div>
-				<a href="${pageContext.request.contextPath }/pledges/rewards.do">
-					<h6>10,000 원 이상</h6>
-					<p>
-						선물1<br />선물선물2<br />선물선물선물3
-					</p>
-					<p>
-						<span>300</span> 명이 선택함
-					</p>
-				</a>
-			</div>
-
-			<div>
-				<a href="${pageContext.request.contextPath }/pledges/rewards.do">
-					<h6>10,000 원 이상</h6>
-					<p>
-						선물1<br />선물선물2<br />선물선물선물3
-					</p>
-					<p>
-						<span>300</span> 명이 선택함
-					</p>
-				</a>
-			</div>
-
-			<div>
-				<a href="${pageContext.request.contextPath }/pledges/rewards.do">
-					<h6>10,000 원 이상</h6>
-					<p>
-						선물1<br />선물선물2<br />선물선물선물3
-					</p>
-					<p>
-						<span>300</span> 명이 선택함
-					</p>
-				</a>
-			</div>
-
-			<div>
-				<a href="${pageContext.request.contextPath }/pledges/rewards.do">
-					<h6>10,000 원 이상</h6>
-					<p>
-						선물1<br />선물선물2<br />선물선물선물3
-					</p>
-					<p>
-						<span>300</span> 명이 선택함
-					</p>
-				</a>
-			</div>
-
-			<div>
-				<a href="${pageContext.request.contextPath }/pledges/rewards.do">
-					<h6>10,000 원 이상</h6>
-					<p>
-						선물1<br />선물선물2<br />선물선물선물3
-					</p>
-					<p>
-						<span>300</span> 명이 선택함
-					</p>
-				</a>
-			</div>
 		</div>
 		<!-- //info_side -->
 	</div>

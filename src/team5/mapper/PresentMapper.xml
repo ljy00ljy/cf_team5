@@ -22,4 +22,13 @@
 		)
 	</insert>
 	
+	<!-- select present -->
+	<select id="select_present_list" parameterType="team5.model.Present" resultMap="present">
+		SELECT 
+			id, money, info, project_id
+		FROM present
+		WHERE project_id=#{projectId}
+		ORDER BY id ASC
+	</select>
+	
 </mapper>

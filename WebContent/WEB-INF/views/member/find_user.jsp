@@ -20,11 +20,11 @@
 	<div class="container">
 		<div class="find_user">
 			<h3>비밀번호 재설정</h3>
-			<p>가입된 메일주소를 입력하시면 비밀번호 재설정 메일을 보내드립니다.</p>
-			<form method="post" action="${pageContext.request.contextPath }/member/find_user_ok.do">
+			<p>가입된 아이디(이메일 주소)를 입력하시면 비밀번호 재설정 메일을 보내드립니다.</p>
+			<form method="post" action="${pageContext.request.contextPath }/member/find_password_user_ok.do">
 				<div class="form-group">
-					<label for="user_id">이메일</label> <input type="email" name="user_id"
-						placeholder="이메일 주소 입력" />
+					<label for="user_id">아이디</label> <input type="email" name="user_id"
+						placeholder="아이디(이메일) 입력" />
 				</div>
 				<div class="forn-group">
 				<button type="submit">메일 발송</button>

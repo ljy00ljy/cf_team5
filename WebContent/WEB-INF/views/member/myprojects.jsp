@@ -33,7 +33,7 @@
 				<c:when test="${fn:length(projectList) > 0 }">
 					<c:forEach var="project" items="${projectList }">
 						<!-- m_thumb item -->
-						<a href="${pageContext.request.contextPath }/project/info.do?project_id=${project.id }">
+						<a href="${pageContext.request.contextPath }/project/info.do?id=${project.id }">
 							<img src="${pageContext.request.contextPath }/main/download.do?file=${project.titleImage }" alt="" />
 							<div class="m_thumb_user">
 								<img src="${pageContext.request.contextPath }/main/download.do?file=${project.producerImageThumb }" alt="" />

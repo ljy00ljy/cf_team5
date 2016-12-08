@@ -63,9 +63,9 @@ public class OutUserOk extends BaseController {
 		// --> import study.jsp.mysite.service.impl.MemberServiceImpl;
 		memberService = new MemberServiceImpl(sqlSession, logger);
 		// -> import study.jsp.mysite.service.impl.BbsDocumentServiceImpl;
-	//	bbsDocumentService = new BbsDocumentServiceImpl(sqlSession, logger);
+		bbsDocumentService = new BbsDocumentServiceImpl(sqlSession, logger);
 		// -> import study.jsp.mysite.service.impl.BbsCommentServiceImpl;
-	//	bbsCommentService = new BbsCommentServiceImpl(sqlSession, logger);
+		bbsCommentService = new BbsCommentServiceImpl(sqlSession, logger);
 
 		/** (3) 로그인 여부 검사 */
 		// 로그인 중이 아니라면 탈퇴할 수 없다.
@@ -102,8 +102,8 @@ public class OutUserOk extends BaseController {
 		/** (6) Service를 통한 탈퇴 시도 */
 		try {
 			// 참조관계 해제
-	//		bbsDocumentService.updateDocumentMemberOut(document);
-	//		bbsCommentService.updateCommentMemberOut(comment);
+			bbsDocumentService.updateDocumentMemberOut(document);
+			bbsCommentService.updateCommentMemberOut(comment);
 			// 비밀번호 검사 --> 비밀번호가 잘못된 경우 예외발생
 			memberService.selectMemberPasswordCount(member);
 			// 탈퇴처리

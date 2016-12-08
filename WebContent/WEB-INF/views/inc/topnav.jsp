@@ -37,11 +37,12 @@
 				</c:when>
 				<c:otherwise>
 					<!-- 로그인 된 경우 -->
-					<ul class="nav navbar-nav navbar-right">
+					<div class="loin" style="margin-top:-20px;">
+					<ul class="nav navbar-nav navbar-right" >
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
 							data-toggle="dropdown" style="padding: 5px"> <!-- 쿠키값에 따른 프로필 이미지 표시 -->
 								<c:if test="${cookie.profileThumbnail!=null}">
-									<img src="${pageContext.request.contextPath}/download.do?file=${cookie.profileThumbnail.value}"
+									<img src="${pageContext.request.contextPath}/main/download.do?file=${cookie.profileThumbnail.value}"
 										class="img-circle" />
 								</c:if> <!-- 쿠키값에 따른 프로필 이미지 표시 끝 --> ${loginInfo.name}님 <span
 								class="caret"></span></a> <!-- 로그인한 경우 표시될 메뉴 -->
@@ -51,7 +52,7 @@
 								<ul class="dropdown-menu pull-right" role="menu"
 					aria-labelledby="dropdownMenu1">
 					<li role="presentation"><a role="menuitem" tabindex="-1"
-						href="${pageContext.request.contextPath }/member/mypledges.do">내후원현황</a></li>
+						href="${pageContext.request.contextPath }/member/mypledges.do?member_id=${loginInfo.id }">내후원현황</a></li>
 					<li role="presentation"><a role="menuitem" tabindex="-1"
 						href="${pageContext.request.contextPath }/member/myprojects.do?member_id=${loginInfo.id }">내프로젝트</a></li>
 					<li role="presentation"><a role="menuitem" tabindex="-1"
@@ -62,7 +63,7 @@
 					<li><a href="${pageContext.request.contextPath }/member/logout.do">로그아웃</a></li>
 				</ul></li>
 					</ul>
-						
+						</div>
 					<!-- //로그인 된 경우 -->
 				</c:otherwise>
 			</c:choose>
