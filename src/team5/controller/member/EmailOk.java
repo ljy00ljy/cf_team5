@@ -65,20 +65,22 @@ public class EmailOk extends  BaseController {
 			web.redirect(null, "인증번호를 입력하세요.");
 			return null;
 		}
-		
+		boolean myComment = false;
 		String emailCf =(String) web.getSession("emailConform");
 		logger.debug("emailCf >> " + emailCf);
-		if(item.equals(emailCf)){
+		if(item.equals(emailCf)){	
+			myComment = true;
+			request.setAttribute("myComment", myComment);
 			web.redirect(null, "인증번호 확인에 성공하였습니다.");
 			web.removeSession("emailCf");
 			logger.debug("emailCf >> " + web.getSession("emailCf"));
-			return "/member/join2";
+		 	return "/member/join";
 		}else{
 			web.redirect(null, "인증번호 확인에 실패하였습니다.");
-			return null;
+		   return null;
 		}
 		
-
+	
 	
 	
 		
